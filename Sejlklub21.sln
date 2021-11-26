@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sejlklub21", "Sejlklub21\Sejlklub21.csproj", "{6E2D62C9-47B7-4CE9-A05A-78A576840F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSejlklub21", "TestSejlklub21\TestSejlklub21.csproj", "{2B3A2E32-365C-4FEE-95E7-B2150D9FF3BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E2D62C9-47B7-4CE9-A05A-78A576840F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E2D62C9-47B7-4CE9-A05A-78A576840F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E2D62C9-47B7-4CE9-A05A-78A576840F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E2D62C9-47B7-4CE9-A05A-78A576840F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3A2E32-365C-4FEE-95E7-B2150D9FF3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B3A2E32-365C-4FEE-95E7-B2150D9FF3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3A2E32-365C-4FEE-95E7-B2150D9FF3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B3A2E32-365C-4FEE-95E7-B2150D9FF3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC72F08B-2842-44F5-B9FE-9F9053D68485}
+	EndGlobalSection
+EndGlobal
