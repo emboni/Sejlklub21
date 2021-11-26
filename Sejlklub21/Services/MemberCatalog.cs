@@ -9,9 +9,16 @@ namespace Sejlklub21.Services
 {
     public class MemberCatalog : IMemberCatalog
     {
+        public List<Member> memberList;
+
+        public MemberCatalog()
+        {
+            memberList = new List<Member>();
+        }
+
         public void AddMember(Member member)
         {
-            throw new NotImplementedException();
+            memberList.Add(member);
         }
 
         public void UpdateMember(Member member)
@@ -21,7 +28,7 @@ namespace Sejlklub21.Services
 
         public void DeleteMember(Member member)
         {
-            throw new NotImplementedException();
+            memberList.Remove(member);
         }
 
         public Member GetMember()
@@ -31,7 +38,7 @@ namespace Sejlklub21.Services
 
         public List<Member> GetAllMembers()
         {
-            throw new NotImplementedException();
+            return memberList;
         }
     }
 }
