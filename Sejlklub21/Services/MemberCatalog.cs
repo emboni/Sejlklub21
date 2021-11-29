@@ -9,13 +9,13 @@ namespace Sejlklub21.Services
 {
     public class MemberCatalog : IMemberCatalog
     {
-        public List<IMember> memberList;
+        private List<IMember> memberList;
 
         public MemberCatalog()
         {
             memberList = new List<IMember>();
 
-            memberList.Add(new Member(1, "bob", "gmail", "111111", "city"));
+            memberList.Add(new Member(0, "name", "email", "######", "address"));
         }
 
         public void AddMember(IMember member)

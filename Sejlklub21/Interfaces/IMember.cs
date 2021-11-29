@@ -12,7 +12,5 @@ namespace Sejlklub21.Interfaces
         string Email { get; set; }
         string Number { get; set; }
         string Address { get; set; }
-
-        string ToString();
     }
 }
