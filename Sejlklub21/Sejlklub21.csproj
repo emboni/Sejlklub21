@@ -8,10 +8,12 @@
     <Folder Include="Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="Pages\Blogs\" />
-    <Folder Include="Pages\Members\" />
     <Folder Include="Pages\Boats\" />
     <Folder Include="Pages\Events\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
