@@ -9,7 +9,6 @@ namespace Sejlklub21.Models
 {
     public class Member : IMember
     {
-        [Required(ErrorMessage = "Id Required")]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Name Required")]

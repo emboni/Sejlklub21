@@ -14,7 +14,7 @@ namespace Sejlklub21.Pages.Members
         private IMemberCatalog memberCatalog;
 
         [BindProperty]
-        public Member Member { get; set; }
+        public IMember Member { get; set; }
 
         public CreateMemberModel(IMemberCatalog catalog)
         {
