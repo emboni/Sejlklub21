@@ -8,11 +8,11 @@ namespace Sejlklub21.Interfaces
 {
     public interface IMemberCatalog
     {
-        public void AddMember(Member member);
-        public void UpdateMember(Member member);
-        public void DeleteMember(Member member);
+        void AddMember(IMember member);
+        void UpdateMember(IMember member);
+        void DeleteMember(IMember member);
 
-        public Member GetMember();
-        public List<Member> GetAllMembers();
+        IMember GetMember(int id);
+        List<IMember> GetAllMembers();
     }
 }

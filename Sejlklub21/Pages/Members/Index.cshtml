@@ -1,7 +1,73 @@
 ﻿@page
+@using Sejlklub21.Models
+@using Sejlklub21.Interfaces
 @model Sejlklub21.Pages.Members.IndexModel
 @{
     ViewData["Title"] = "Members";
 }
 
+<style>
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
 <h1>Members</h1>
+
+<a asp-page="/Members/CreateMember">Create Member</a>
+
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Number
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (Member item in Model.Members)
+    {
+    <tr>
+        <td>
+            @item.Id
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Email
+        </td>
+        <td>
+            @item.Number
+        </td>
+        <td>
+            @item.Address
+        </td>
+        <td>
+            <a asp-page="/Members/EditMember" asp-route-id="@item.Id">Edit</a> | <a asp-page="/Members/DeleteEvent" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+    }
+</table>
