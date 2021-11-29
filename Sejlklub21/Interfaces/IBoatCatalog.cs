@@ -7,5 +7,14 @@ namespace Sejlklub21.Interfaces
 {
     interface IBoatCatalog
     {
+        void Add(IBoat boat);
+
+        void Update(IBoat boat);
+
+        void Delete(int boatNum);
+
+        IBoat GetBoat(int boatNum);
+
+        List<IBoat> GetAllBoats();
     }
 }
