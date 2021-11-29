@@ -8,6 +8,8 @@ namespace Sejlklub21.Interfaces
 {
     interface IDamage
     {
+        int Id { get; }
+
         DateTime Date { get; }
 
         string Description { get; }
