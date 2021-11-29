@@ -9,34 +9,36 @@ namespace Sejlklub21.Services
 {
     public class MemberCatalog : IMemberCatalog
     {
-        public List<Member> memberList;
+        public List<IMember> memberList;
 
         public MemberCatalog()
         {
-            memberList = new List<Member>();
+            memberList = new List<IMember>();
+
+            memberList.Add(new Member(1, "bob", "gmail", "111111", "city"));
         }
 
-        public void AddMember(Member member)
+        public void AddMember(IMember member)
         {
             memberList.Add(member);
         }
 
-        public void UpdateMember(Member member)
+        public void UpdateMember(IMember member)
         {
-            throw new NotImplementedException();
+            memberList[member.Id] = member;
         }
 
-        public void DeleteMember(Member member)
+        public void DeleteMember(IMember member)
         {
             memberList.Remove(member);
         }
 
-        public Member GetMember()
+        public IMember GetMember(int id)
         {
-            throw new NotImplementedException();
+            return memberList[id];
         }
 
-        public List<Member> GetAllMembers()
+        public List<IMember> GetAllMembers()
         {
             return memberList;
         }
