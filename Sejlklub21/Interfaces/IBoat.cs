@@ -16,6 +16,6 @@ namespace Sejlklub21.Interfaces
 
         string Location { get; }
 
-        List<IDamage> Damages { get; }
+        List<IDamage> Damages { get; set; }
     }
 }

@@ -64,6 +64,7 @@ namespace Sejlklub21.Models
         public List<IDamage> Damages
         {
             get { return _damages; }
+            set { _damages = value; }
         }
     }
 }
