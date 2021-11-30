@@ -28,14 +28,14 @@ namespace Sejlklub21.Pages.Members
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Page();
+                memberCatalog.AddMember(Member);
+
+                return RedirectToPage("/Members/Index");
             }
 
-            memberCatalog.AddMember(Member);
-
-            return RedirectToPage("/Members/Index");
+            return Page();
         }
     }
 }

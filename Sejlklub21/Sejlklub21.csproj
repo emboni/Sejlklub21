@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Accounts\Login.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Pages\Blogs\" />
     <Folder Include="Pages\Boats\" />
@@ -13,6 +17,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Members\Login.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -1,13 +1,13 @@
 [
   {
     "Id": 0,
-    "Username": null,
-    "Password": null,
-    "Admin": false,
-    "Name": "TEST2",
-    "Email": "ewefwefw",
-    "Number": "ewfwfwf",
-    "Address": "fweffw"
+    "Username": "admin",
+    "Password": "1234",
+    "Admin": true,
+    "Name": "admin",
+    "Email": "email",
+    "Number": "11111111",
+    "Address": "address"
   },
   {
     "Id": 1,

@@ -40,6 +40,25 @@ namespace Sejlklub21.Services
             JsonFileWriter.WriteJsonMembers(members, jsonFilePath);
         }
 
+        public bool Login(string username, string password)
+        {
+            IMember loginMember = GetMemberByUsername(username);
+
+            if (loginMember != null && loginMember.Password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void Logout()
+        {
+
+        }
+
         public IMember GetMember(int id)
         {
             List<IMember> members = GetAllMembers();
@@ -47,6 +66,21 @@ namespace Sejlklub21.Services
             foreach (Member member in members)
             {
                 if (member.Id == id)
+                {
+                    return member;
+                }
+            }
+
+            return null;
+        }
+
+        public IMember GetMemberByUsername(string username)
+        {
+            List<IMember> members = GetAllMembers();
+
+            foreach (Member member in members)
+            {
+                if (member.Username == username)
                 {
                     return member;
                 }

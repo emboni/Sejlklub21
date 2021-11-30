@@ -11,7 +11,10 @@ namespace Sejlklub21.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Username Required")]
         public string Username { get; set; }
+
+        [Required(ErrorMessage = "Password Required")]
         public string Password { get; set; }
 
         public bool Admin { get; set; }
@@ -45,9 +48,9 @@ namespace Sejlklub21.Models
             
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object ? obj)
         {
-            if (((Member) obj).Id == this.Id)
+            if (((Member)obj).Id == this.Id)
             {
                 return true;
             }
