@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="Pages\Blogs\" />
-    <Folder Include="Pages\Boats\" />
     <Folder Include="Pages\Events\" />
   </ItemGroup>
 

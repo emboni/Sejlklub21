@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Sejlklub21.Interfaces
 {
-    interface IBoat
+    public interface IBoat
     {
-        int BoatNum { get; }
+        int BoatNum { get; set; }
         string Model { get; }
 
         string Name { get; }

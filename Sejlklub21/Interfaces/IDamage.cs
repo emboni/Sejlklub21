@@ -6,7 +6,7 @@ using Sejlklub21.Models;
 
 namespace Sejlklub21.Interfaces
 {
-    interface IDamage
+    public interface IDamage
     {
         int Id { get; }
 

@@ -1,0 +1,29 @@
+﻿@page
+@using Sejlklub21.Interfaces
+@model Sejlklub21.Pages.Boats.BoatIndexModel
+@{
+}
+
+<h1>Alle både.</h1>
+<p><a asp-page="CreateBoat">Lav en ny båd</a></p>
+<table class="table">
+    <thead>
+    <tr>
+        <td>Navn</td>
+        <td>Model</td>
+        <td>Spesificationer</td>
+        <td>Lokation</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (IBoat boat in Model.Boats)
+    {
+        <tr>
+            <td>@boat.Name</td>
+            <td>@boat.Model</td>
+            <td>@boat.Specification</td>
+            <td>@boat.Location</td>
+        </tr>
+    }
+    </tbody>
+</table>

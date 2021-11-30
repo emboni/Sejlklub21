@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Sejlklub21.Interfaces;
+using Sejlklub21.Models;
 using Sejlklub21.Services;
 
 namespace Sejlklub21
@@ -28,6 +29,7 @@ namespace Sejlklub21
             services.AddRazorPages();
 
             services.AddTransient<IMemberCatalog, MemberCatalog>();
+            services.AddTransient<IBoatCatalog, BoatCatalog>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
