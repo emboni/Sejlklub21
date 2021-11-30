@@ -21,12 +21,16 @@ namespace Sejlklub21.Services
 
         public void Update(IBoat boat)
         {
-            throw new NotImplementedException();
+            List<IBoat> allBoats = GetAllBoats();
+            allBoats[allBoats.FindIndex(x => x.BoatNum == boat.BoatNum)] = boat;
+            Helpers.JsonFileWritter.WriteToJsonBoat(allBoats, _filePath);
         }
 
         public void Delete(int boatNum)
         {
-            throw new NotImplementedException();
+            List<IBoat> allBoats = GetAllBoats();
+            allBoats.Remove(allBoats.First(x=>x.BoatNum == boatNum));
+            Helpers.JsonFileWritter.WriteToJsonBoat(allBoats, _filePath);
         }
 
         public IBoat GetBoat(int boatNum)

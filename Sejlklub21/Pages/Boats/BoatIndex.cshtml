@@ -23,6 +23,13 @@
             <td>@boat.Model</td>
             <td>@boat.Specification</td>
             <td>@boat.Location</td>
+            <td>
+                <form method="post">
+                    <a asp-page="EditBoat" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Rediger</a>
+                    <button asp-page-handler="delete" asp-route-id="@boat.BoatNum" class="btn btn-danger"
+                            onclick="return confirm('Er du sikker på at du vil slette denne båd?');">Slet</button>
+                </form>
+            </td>
         </tr>
     }
     </tbody>

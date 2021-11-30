@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,28 +28,32 @@ namespace Sejlklub21.Models
             set { _id = value; }
         }
 
-        [Required]
+        [Required(ErrorMessage = "Model fæltet skal være udfyldt")]
+        [DisplayName("Model")]
         public string Model
         {
             get { return _model; }
             set { _model = value; }
         }
 
-        [Required]
+        [Required(ErrorMessage = "Navn fæltet skal være udfyldt")]
+        [DisplayName("Navn")]
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        [Required]
+        [Required(ErrorMessage = "Spesificationer fæltet skal være udfyldt")]
+        [DisplayName("Spesificationer")]
         public string Specification
         {
             get { return _specification; }
             set { _specification = value; }
         }
 
-        [Required]
+        [Required(ErrorMessage = "Lokation fæltet skal være udfyldt")]
+        [DisplayName("Lokation")]
         public string Location
         {
             get { return _location; }
