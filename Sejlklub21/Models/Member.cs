@@ -11,6 +11,11 @@ namespace Sejlklub21.Models
     {
         public int Id { get; set; }
 
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+        public bool Admin { get; set; }
+
         [Required(ErrorMessage = "Name Required")]
         public string Name { get; set; }
 
@@ -23,9 +28,12 @@ namespace Sejlklub21.Models
         [Required(ErrorMessage = "Address Required")]
         public string Address { get; set; }
 
-        public Member(int id, string name, string email, string number, string address)
+        public Member(int id, string username, string password, bool admin, string name, string email, string number, string address)
         {
             Id = id;
+            Username = username;
+            Password = password;
+            Admin = admin;
             Name = name;
             Email = email;
             Number = number;
@@ -35,6 +43,18 @@ namespace Sejlklub21.Models
         public Member()
         {
             
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (((Member) obj).Id == this.Id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override string ToString()

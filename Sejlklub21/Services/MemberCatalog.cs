@@ -42,7 +42,17 @@ namespace Sejlklub21.Services
 
         public IMember GetMember(int id)
         {
-            return GetAllMembers()[id];
+            List<IMember> members = GetAllMembers();
+
+            foreach (Member member in members)
+            {
+                if (member.Id == id)
+                {
+                    return member;
+                }
+            }
+
+            return null;
         }
 
         public List<IMember> GetAllMembers()

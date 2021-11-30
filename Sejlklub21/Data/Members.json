@@ -1,9 +1,22 @@
 [
   {
     "Id": 0,
-    "Name": "name",
+    "Username": null,
+    "Password": null,
+    "Admin": false,
+    "Name": "TEST2",
+    "Email": "ewefwefw",
+    "Number": "ewfwfwf",
+    "Address": "fweffw"
+  },
+  {
+    "Id": 1,
+    "Username": "Joe",
+    "Password": "1234",
+    "Admin": false,
+    "Name": "Joe",
     "Email": "email",
-    "Number": "######",
-    "Address": "address" 
+    "Number": "11111111",
+    "Address": "address"
   }
 ]

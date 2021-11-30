@@ -14,7 +14,7 @@ namespace Sejlklub21.Pages.Members
         private IMemberCatalog memberCatalog;
 
         [BindProperty]
-        public IMember Member { get; set; }
+        public Member Member { get; set; }
 
         public DeleteMemberModel(IMemberCatalog catalog)
         {
@@ -23,7 +23,7 @@ namespace Sejlklub21.Pages.Members
 
         public IActionResult OnGet(int id)
         {
-            Member = memberCatalog.GetMember(id);
+            Member = memberCatalog.GetMember(id) as Member;
 
             return Page();
         }

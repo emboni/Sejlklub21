@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Sejlklub21.Interfaces;
 using Sejlklub21.Models;
 
 namespace Sejlklub21.Helpers
@@ -22,10 +23,10 @@ namespace Sejlklub21.Helpers
             return JsonSerializer.Deserialize<List<Blog>>(jsonString);
         }
 
-        public static List<Member> ReadJsonMembers(string jsonFileName)
+        public static List<IMember> ReadJsonMembers(string jsonFileName)
         {
             string jsonString = File.ReadAllText(jsonFileName);
-            return JsonSerializer.Deserialize<List<Member>>(jsonString);
+            return JsonSerializer.Deserialize<List<Member>>(jsonString).ToList<IMember>();
         }
     }
 }

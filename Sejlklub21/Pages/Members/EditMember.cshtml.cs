@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
+using Sejlklub21.Models;
 
 namespace Sejlklub21.Pages.Members
 {
@@ -13,7 +14,7 @@ namespace Sejlklub21.Pages.Members
         private IMemberCatalog memberCatalog;
 
         [BindProperty]
-        public IMember Member { get; set; }
+        public Member Member { get; set; }
 
         public EditMemberModel(IMemberCatalog catalog)
         {
@@ -22,7 +23,7 @@ namespace Sejlklub21.Pages.Members
 
         public IActionResult OnGet(int id)
         {
-            Member = memberCatalog.GetMember(id);
+            Member = memberCatalog.GetMember(id) as Member;
 
             return Page();
         }
