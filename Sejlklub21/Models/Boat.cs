@@ -66,5 +66,10 @@ namespace Sejlklub21.Models
             get { return _damages; }
             set { _damages = value; }
         }
+
+        public IDamage GetDamage(int id)
+        {
+            return _damages.First(x => x.Id == id);
+        }
     }
 }

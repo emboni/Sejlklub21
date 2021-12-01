@@ -1,0 +1,18 @@
+﻿@page
+@model Sejlklub21.Pages.Boats.EditDamageModel
+@{
+}
+
+<h1>Rediger en skade</h1>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Damage.Description" class="control-label"></label>
+        <input asp-for="Damage.Description" class="form-control" />
+        <span asp-validation-for="Damage.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Damage.Status" class="control-label"></label>
+        <input asp-for="Damage.Status" class="form-control"/>
+    </div>
+    <input type="submit" class="btn btn-outline-primary" />
+</form>

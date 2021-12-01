@@ -25,5 +25,13 @@ namespace Sejlklub21.Pages.Boats
             BoatNumber = id;
             Boat = (Boat)_boatCatalog.GetBoat(id);
         }
+
+        public IActionResult OnPostDelete(int dmgId)
+        {
+            int dmgIndex = _boatCatalog.GetBoat(BoatNumber).Damages.FindIndex(x => x.Id == dmgId);
+            Boat.Damages.RemoveAt(dmgIndex);
+            _boatCatalog.Update(Boat);
+            return RedirectToPage("Damage", new {id = BoatNumber});
+        }
     }
 }
