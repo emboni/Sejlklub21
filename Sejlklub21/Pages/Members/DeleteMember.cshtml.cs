@@ -12,17 +12,24 @@ namespace Sejlklub21.Pages.Members
     public class DeleteMemberModel : PageModel
     {
         private IMemberCatalog memberCatalog;
+        private ILoginService loginService;
 
         [BindProperty]
         public Member Member { get; set; }
 
-        public DeleteMemberModel(IMemberCatalog catalog)
+        public DeleteMemberModel(IMemberCatalog catalog, ILoginService service)
         {
             memberCatalog = catalog;
+            loginService = service;
         }
 
         public IActionResult OnGet(int id)
         {
+            if (!loginService.AdminPrivilege)
+            {
+                return RedirectToPage("/Logins/UnauthorizedAccess");
+            }
+
             Member = memberCatalog.GetMember(id) as Member;
 
             return Page();

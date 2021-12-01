@@ -12,17 +12,24 @@ namespace Sejlklub21.Pages.Members
     public class CreateMemberModel : PageModel
     {
         private IMemberCatalog memberCatalog;
+        private ILoginService loginService;
 
         [BindProperty]
         public Member Member { get; set; }
 
-        public CreateMemberModel(IMemberCatalog catalog)
+        public CreateMemberModel(IMemberCatalog catalog, ILoginService service)
         {
             memberCatalog = catalog;
+            loginService = service;
         }
 
         public IActionResult OnGet()
         {
+            if (!loginService.AdminPrivilege)
+            {
+                return RedirectToPage("/Logins/UnauthorizedAccess");
+            }
+
             return Page();
         }
 
