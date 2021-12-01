@@ -42,13 +42,13 @@ namespace Sejlklub21.Pages.Accounts
 
                 if (LoginMember != null)
                 {
-                    loginService.CurrentMember = LoginMember;
+                    loginService.SetCurrentMember(LoginMember);
 
-                    if (LoginMember.Admin)
+                    if (loginService.AdminPrivilege)
                     {
                         return RedirectToPage("/Members/Index");
                     }
-                    else if (!LoginMember.Admin)
+                    else if (!loginService.AdminPrivilege)
                     {
                         return RedirectToPage("/Index");
                     }

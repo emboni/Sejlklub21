@@ -54,11 +54,6 @@ namespace Sejlklub21.Services
             }
         }
 
-        public void Logout()
-        {
-
-        }
-
         public IMember GetMember(int id)
         {
             List<IMember> members = GetAllMembers();

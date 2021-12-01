@@ -13,7 +13,6 @@ namespace Sejlklub21.Interfaces
         void DeleteMember(IMember member);
 
         IMember Login(string username, string password);
-        void Logout();
 
         IMember GetMember(int id);
         IMember GetMemberByUsername(string username);
