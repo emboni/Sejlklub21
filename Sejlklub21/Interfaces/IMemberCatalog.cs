@@ -12,7 +12,7 @@ namespace Sejlklub21.Interfaces
         void UpdateMember(IMember member);
         void DeleteMember(IMember member);
 
-        bool Login(string username, string password);
+        IMember Login(string username, string password);
         void Logout();
 
         IMember GetMember(int id);

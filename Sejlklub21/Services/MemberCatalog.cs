@@ -40,17 +40,17 @@ namespace Sejlklub21.Services
             JsonFileWriter.WriteJsonMembers(members, jsonFilePath);
         }
 
-        public bool Login(string username, string password)
+        public IMember Login(string username, string password)
         {
             IMember loginMember = GetMemberByUsername(username);
 
             if (loginMember != null && loginMember.Password == password)
             {
-                return true;
+                return loginMember;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 

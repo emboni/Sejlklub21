@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Sejlklub21.Models;
+using Sejlklub21.Interfaces;
 
 namespace Sejlklub21.Services
 {
-    public class LoginService
+    public class LoginService : ILoginService
     {
-        public Member CurrentMember { get; set; }
-
-
+        public IMember CurrentMember { get; set; }
     }
 }

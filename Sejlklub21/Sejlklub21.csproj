@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Accounts\Login.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Pages\Blogs\" />
     <Folder Include="Pages\Boats\" />
@@ -20,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\Members\Login.cshtml" />
+    <None Include="Pages\Logins\Login.cshtml" />
   </ItemGroup>
 
 </Project>
