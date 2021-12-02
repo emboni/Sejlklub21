@@ -23,7 +23,6 @@ namespace Sejlklub21.Helpers
             return JsonSerializer.Deserialize<List<Event>>(jsonString);
         }
 
-        public static List<Blog> ReadJsonBlog(string jsonFileName)
         public static List<IBlogPost> ReadJsonBlog(string jsonFileName)
         {
             string jsonString = File.ReadAllText(jsonFileName);

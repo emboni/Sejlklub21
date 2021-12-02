@@ -23,7 +23,6 @@ namespace Sejlklub21.Helpers
             File.WriteAllText(JsonFileName, output);
         }
 
-        public static void WriteToJsonBlog(List<Blog> @events, string JsonFileName)
         public static void WriteToJsonBlog(List<IBlogPost> @events, string JsonFileName)
         {
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(@events, Newtonsoft.Json.Formatting.Indented);
