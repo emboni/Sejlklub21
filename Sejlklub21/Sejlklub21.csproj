@@ -5,14 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="Pages\Boats\" />
-    <Folder Include="Pages\Events\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Logins\Login.cshtml" />
   </ItemGroup>
 
 </Project>

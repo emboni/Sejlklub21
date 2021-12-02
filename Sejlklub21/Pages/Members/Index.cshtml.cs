@@ -13,22 +13,33 @@ namespace Sejlklub21.Pages.Members
     public class IndexModel : PageModel
     {
         private IMemberCatalog memberCatalog;
+        private ILoginService loginService;
 
         public List<IMember> Members { get; set; }
 
-        public IndexModel(IMemberCatalog catalog)
+        public IndexModel(IMemberCatalog catalog, ILoginService service)
         {
             memberCatalog = catalog;
+            loginService = service;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (!loginService.AdminPrivilege)
+            {
+                return RedirectToPage("/Logins/UnauthorizedAccess");
+            }
+
             Members = memberCatalog.GetAllMembers();
+
+            return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             Members = memberCatalog.GetAllMembers();
+
+            return Page();
         }
     }
 }

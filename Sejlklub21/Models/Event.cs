@@ -13,6 +13,20 @@ namespace Sejlklub21.Models
         private string _description;
         private string _location;
         private DateTime _date;
+        private int v1;
+        private string v2;
+        private DateTime dateTime;
+        private string v3;
+        private string v4;
+
+        public Event(int v1, string v2, DateTime dateTime, string v3, string v4)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.dateTime = dateTime;
+            this.v3 = v3;
+            this.v4 = v4;
+        }
 
         public int Id { get { return _id; } set { _id = value; } }
         public string Title { get { return _title; } set { _title = value; } }

@@ -8,6 +8,12 @@ namespace Sejlklub21.Interfaces
     public interface IMember
     {
         int Id { get; set; }
+
+        string Username { get; set; }
+        string Password { get; set; }
+
+        bool Admin { get; set; }
+
         string Name { get; set; }
         string Email { get; set; }
         string Number { get; set; }
