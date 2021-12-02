@@ -25,7 +25,7 @@
             <td>@boat.Location</td>
             <td>
                 <form method="post">
-                    <a asp-page="Damages" asp-route-id="@boat.BoatNum" class="btn btn-outline-light">Skader</a>
+                    <a asp-page="Damages" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Skader</a>
                     <a asp-page="EditBoat" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Rediger</a>
                     <button asp-page-handler="delete" asp-route-id="@boat.BoatNum" class="btn btn-danger"
                             onclick="return confirm('Er du sikker på at du vil slette denne båd?');">Slet</button>

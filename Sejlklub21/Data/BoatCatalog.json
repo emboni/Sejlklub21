@@ -5,6 +5,13 @@
     "Name": "Going Merry",
     "Specification": "Pirate",
     "Location": "Grand Line",
-    "Damages": []
+    "Damages": [
+      {
+        "Id": 0,
+        "Date": "0001-01-01T00:00:00",
+        "Description": "On Fire",
+        "Status": 1
+      }
+    ]
   }
 ]
