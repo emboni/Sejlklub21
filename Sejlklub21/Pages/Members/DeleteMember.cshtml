@@ -3,3 +3,27 @@
 @{
     ViewData["Title"] = "Delete Member";
 }
+
+<h1>Are you sure about that?</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label class="control-label">Id: @Model.Member.Id</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Name: @Model.Member.Name</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Email: @Model.Member.Email</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Number: @Model.Member.Number</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Address: @Model.Member.Address</label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <input type="button" value="Cancel" class="btn btn-link" />
+    </div>
+</form>
