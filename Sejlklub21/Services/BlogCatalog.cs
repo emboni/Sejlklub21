@@ -9,20 +9,20 @@ namespace Sejlklub21.Services
 {
     public class BlogCatalog : IBlogCatalog
     {
-        private List<IBlogPost> _blogPost { get; }
+        private List<IBlogPost> _blogPosts { get; }
 
         public BlogCatalog()
         {
-            _blogPost = new List<IBlogPost>();
+            _blogPosts = new List<IBlogPost>();
 
-            _blogPost.Add(new Blog(){Id = 1, Title = "Reperation af joller", Content = "Skader på joller er blevet udbedret", Picture = "Billede af reparerede joller", Date = new DateTime(2021, 03, 12)});
+            _blogPosts.Add(new Blog(){Id = 1, Title = "Reperation af joller", Content = "Skader på joller er blevet udbedret", Picture = "Billede af reparerede joller", Date = new DateTime(2021, 03, 12)});
 
         }
 
 
         public void AddBlogPost(IBlogPost blogPost)
         {
-            _blogPost.Add(blogPost);
+            _blogPosts.Add(blogPost);
         }
 
         public void UpdateBlogPost(IBlogPost blogPost)
@@ -42,7 +42,7 @@ namespace Sejlklub21.Services
 
         public List<IBlogPost> GetAllBlogPost()
         {
-            throw new NotImplementedException();
+            return _blogPosts;
         }
 
 
