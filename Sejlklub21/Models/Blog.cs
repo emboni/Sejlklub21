@@ -9,11 +9,11 @@ namespace Sejlklub21.Models
 {
     public class Blog : IBlogPost
     {
+        private int _id;
         private string _title;
+        private DateTime _date;
         private string _content;
         private string _picture;
-        private int _id;
-        private DateTime _date;
 
         public string Title
         {
@@ -51,11 +51,11 @@ namespace Sejlklub21.Models
 
         public Blog(string title, string content, string picture, int id, DateTime date)
         {
-            _title = title;
-            _content = content;
-            _picture = picture;
             _id = id;
+            _title = title;
             _date = date;
+            _picture = picture;
+            _content = content;
         }
 
         public override string ToString()
