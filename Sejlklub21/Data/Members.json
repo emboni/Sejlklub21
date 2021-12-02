@@ -6,17 +6,7 @@
     "Admin": true,
     "Name": "admin",
     "Email": "email",
-    "Number": "11111111",
-    "Address": "address"
-  },
-  {
-    "Id": 1,
-    "Username": "Joe",
-    "Password": "1234",
-    "Admin": false,
-    "Name": "Joe",
-    "Email": "email",
-    "Number": "11111111",
+    "Number": "222222",
     "Address": "address"
   }
 ]
