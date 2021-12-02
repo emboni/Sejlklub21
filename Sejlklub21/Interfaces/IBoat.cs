@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sejlklub21.Models;
 
 namespace Sejlklub21.Interfaces
 {
@@ -16,7 +17,7 @@ namespace Sejlklub21.Interfaces
 
         string Location { get; }
 
-        List<IDamage> Damages { get; set; }
+        List<Damage> Damages { get; set; }
 
         IDamage GetDamage(int id);
     }

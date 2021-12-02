@@ -20,7 +20,7 @@ namespace Sejlklub21.Models
         
         private string _location;
 
-        private List<IDamage> _damages;
+        private List<Damage> _damages;
 
         public int BoatNum
         {
@@ -61,7 +61,7 @@ namespace Sejlklub21.Models
 
         }
 
-        public List<IDamage> Damages
+        public List<Damage> Damages
         {
             get { return _damages; }
             set { _damages = value; }

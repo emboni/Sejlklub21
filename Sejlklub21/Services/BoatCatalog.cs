@@ -15,7 +15,7 @@ namespace Sejlklub21.Services
         {
             List<IBoat> allBoats = GetAllBoats();
             boat.BoatNum = allBoats.Count == 0 ? 1 : allBoats.Max(x => x.BoatNum) + 1;
-            boat.Damages = new List<IDamage>();
+            boat.Damages = new List<Damage>();
             allBoats.Add(boat);
             Helpers.JsonFileWritter.WriteToJsonBoat(allBoats, _filePath);
         }
