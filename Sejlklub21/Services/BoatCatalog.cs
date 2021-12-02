@@ -17,21 +17,21 @@ namespace Sejlklub21.Services
             boat.BoatNum = allBoats.Count == 0 ? 1 : allBoats.Max(x => x.BoatNum) + 1;
             boat.Damages = new List<Damage>();
             allBoats.Add(boat);
-            Helpers.JsonFileWritter.WriteToJsonBoat(allBoats, _filePath);
+            Helpers.JsonFileWriter.WriteToJsonBoat(allBoats, _filePath);
         }
 
         public void Update(IBoat boat)
         {
             List<IBoat> allBoats = GetAllBoats();
             allBoats[allBoats.FindIndex(x => x.BoatNum == boat.BoatNum)] = boat;
-            Helpers.JsonFileWritter.WriteToJsonBoat(allBoats, _filePath);
+            Helpers.JsonFileWriter.WriteToJsonBoat(allBoats, _filePath);
         }
 
         public void Delete(int boatNum)
         {
             List<IBoat> allBoats = GetAllBoats();
             allBoats.Remove(allBoats.First(x=>x.BoatNum == boatNum));
-            Helpers.JsonFileWritter.WriteToJsonBoat(allBoats, _filePath);
+            Helpers.JsonFileWriter.WriteToJsonBoat(allBoats, _filePath);
         }
 
         public IBoat GetBoat(int boatNum)
