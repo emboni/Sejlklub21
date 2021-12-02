@@ -27,6 +27,8 @@ namespace Sejlklub21
         {
             services.AddRazorPages();
 
+            services.AddSingleton<ILoginService, LoginService>();
+
             services.AddTransient<IMemberCatalog, MemberCatalog>();
             services.AddTransient<IEventCatalog, EventCatalog>();
         }
