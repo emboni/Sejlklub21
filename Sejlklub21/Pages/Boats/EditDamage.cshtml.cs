@@ -13,10 +13,10 @@ namespace Sejlklub21.Pages.Boats
     public class EditDamageModel : PageModel
     {
         private IBoatCatalog _boatCatalog;
+        private Damage _damage;
 
         [BindProperty]
         public Damage Damage { get; set; }
-        public DamageStatus.Status DmgStatus { get; set; }
 
         public EditDamageModel(IBoatCatalog boatCatalog)
         {
@@ -29,10 +29,13 @@ namespace Sejlklub21.Pages.Boats
 
         public IActionResult OnPost(int boatId, int dmgId)
         {
+            _damage = (Damage)_boatCatalog.GetBoat(boatId).GetDamage(dmgId);
             IBoat boat = _boatCatalog.GetBoat(boatId);
-            Damage dmg = boat.Damages.First(x => x.Id == dmgId);
 
-            boat.Damages[boat.Damages.IndexOf(dmg)] = Damage;
+            Damage.Id = _damage.Id;
+            Damage.Date = _damage.Date;
+
+            boat.Damages[boat.Damages.FindIndex(x=>x.Id == dmgId)] = Damage;
 
             _boatCatalog.Update(boat);
             
