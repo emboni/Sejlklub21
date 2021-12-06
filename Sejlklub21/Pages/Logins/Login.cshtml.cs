@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +17,11 @@ namespace Sejlklub21.Pages.Accounts
         private ILoginService loginService;
 
         [BindProperty]
+        [Required(ErrorMessage = "Username Required")]
         public string Username { get; set; }
 
         [BindProperty]
+        [Required(ErrorMessage = "Password Required")]
         public string Password { get; set; }
 
         public IMember LoginMember { get; set; }
