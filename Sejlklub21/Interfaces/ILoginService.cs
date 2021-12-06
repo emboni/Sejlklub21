@@ -11,5 +11,6 @@ namespace Sejlklub21.Interfaces
         bool AdminPrivilege { get; set; }
 
         void SetCurrentMember(IMember member);
+        bool CheckCurrentMember();
     }
 }
