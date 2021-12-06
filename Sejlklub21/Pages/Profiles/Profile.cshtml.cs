@@ -23,6 +23,11 @@ namespace Sejlklub21.Pages.Logins
 
         public IActionResult OnGet()
         {
+            if (loginService.CheckCurrentMember() == false)
+            {
+                return RedirectToPage("/Logins/UnauthorizedAccess");
+            }
+
             CurrentMember = loginService.CurrentMember;
 
             return Page();

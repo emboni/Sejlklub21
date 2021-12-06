@@ -4,8 +4,13 @@
     ViewData["Title"] = "Profile";
 }
 
-<form method="post">
-    <div class="form-group">
+<form>
+    <div>
         <label class="control-label">@Model.CurrentMember.Name</label>
+    </div>
+    <div>
+        <a asp-page="/Profiles/EditProfile" asp-route-id="@Model.CurrentMember.Id">Edit</a>
+        <a asp-page="/Profiles/DeleteProfile" asp-route-id="@Model.CurrentMember.Id">Delete</a>
+        <a asp-page="/Logins/Logout">Logout</a>
     </div>
 </form>

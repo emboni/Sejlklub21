@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
 using Sejlklub21.Models;
 
-namespace Sejlklub21.Pages.Logins
+namespace Sejlklub21.Pages.Profiles
 {
-    public class DeleteProfileModel : PageModel
+    public class CreateProfileModel : PageModel
     {
         private IMemberCatalog memberCatalog;
         private ILoginService loginService;
@@ -17,29 +17,32 @@ namespace Sejlklub21.Pages.Logins
         [BindProperty]
         public Member Member { get; set; }
 
-        public DeleteProfileModel(IMemberCatalog catalog, ILoginService service)
+        public CreateProfileModel(IMemberCatalog catalog, ILoginService service)
         {
             memberCatalog = catalog;
             loginService = service;
         }
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet()
         {
             if (loginService.CheckCurrentMember() == false)
             {
                 return RedirectToPage("/Logins/UnauthorizedAccess");
             }
 
-            Member = memberCatalog.GetMember(id) as Member;
-
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            memberCatalog.DeleteMember(Member);
+            if (ModelState.IsValid)
+            {
+                memberCatalog.AddMember(Member);
 
-            return RedirectToPage("/Index");
+                return RedirectToPage("/Profiles/Profile");
+            }
+
+            return Page();
         }
     }
 }
