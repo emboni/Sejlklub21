@@ -34,5 +34,11 @@ namespace Sejlklub21.Helpers
             string jsonString = File.ReadAllText(jsonFileName);
             return JsonSerializer.Deserialize<List<Member>>(jsonString).ToList<IMember>();
         }
+
+        public static List<IBooking> ReadJsonBookings(string jsonFileName)
+        {
+            string jsonString = File.ReadAllText(jsonFileName);
+            return JsonSerializer.Deserialize<List<Booking>>(jsonString)?.ToList<IBooking>();
+        }
     }
 }
