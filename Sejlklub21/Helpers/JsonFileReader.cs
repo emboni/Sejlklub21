@@ -31,8 +31,20 @@ namespace Sejlklub21.Helpers
 
         public static List<IMember> ReadJsonMembers(string jsonFileName)
         {
-            string jsonString = File.ReadAllText(jsonFileName);
-            return JsonSerializer.Deserialize<List<Member>>(jsonString).ToList<IMember>();
+            try
+            {
+                string jsonString = File.ReadAllText(jsonFileName);
+                return JsonSerializer.Deserialize<List<Member>>(jsonString).ToList<IMember>();
+            }
+            catch (FileNotFoundException fnfex)
+            {
+                string message = fnfex.Message;
+
+                return new List<IMember>()
+                {
+                    new Member(0, "admin", "1234", true, "admin", "admin@email.com", "00000000", "address")
+                };
+            }
         }
     }
 }

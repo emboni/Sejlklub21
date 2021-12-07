@@ -53,14 +53,8 @@
                                 @if (loginService.CheckCurrentMember())
                                 {
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Profiles/Profile">
-                                        @if (loginService.CheckCurrentMember())
-                                        {
-                                            <div>@loginService.CurrentMember.Name</div>
-                                        }
-                                        else
-                                        {
-                                            <div>Profile</div>
-                                        }
+                                        @loginService.CurrentMember.Name
+                                        <img src="~/Images/cat.jpg" width="28" height="28">
                                     </a>
                                 }
                             </li>

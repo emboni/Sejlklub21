@@ -4,19 +4,39 @@
     ViewData["Title"] = "Profile";
 }
 
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+
 <form>
     <div>
-        <label class="control-label">@Model.CurrentMember.Name</label>
+        <img src="~/Images/cat.jpg" width="128" height="128">
+    </div>
+    <div>
+        <label class="control-label">Name: @Model.CurrentMember.Name</label>
+    </div>
+    <div>
+        <label class="control-label">Email: @Model.CurrentMember.Email</label>
+    </div>
+    <div>
+        <label class="control-label">Number: @Model.CurrentMember.Number</label>
+    </div>
+    <div>
+        <label class="control-label">Address: @Model.CurrentMember.Address</label>
     </div>
     <div>
         <a asp-page="/Profiles/EditProfile" asp-route-id="@Model.CurrentMember.Id">
-            <input type="button" value="Edit" class="btn btn-light"/>
-        </a>
-        <a asp-page="/Profiles/DeleteProfile" asp-route-id="@Model.CurrentMember.Id">
-            <input type="button" value="Delete" class="btn btn-light"/>
+            <input type="button" value="Edit" class="btn btn-light" />
         </a>
         <a asp-page="/Logins/Logout">
-            <input type="button" value="Logout" class="btn btn-light"/>
+            <input type="button" value="Logout" class="btn btn-light" />
+        </a>
+    </div>
+    <div>
+        <a asp-page="/Profiles/DeleteProfile" asp-route-id="@Model.CurrentMember.Id">
+            <input type="button" value="Delete" class="btn btn-danger" />
         </a>
     </div>
 </form>
