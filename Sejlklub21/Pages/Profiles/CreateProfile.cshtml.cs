@@ -25,11 +25,6 @@ namespace Sejlklub21.Pages.Profiles
 
         public IActionResult OnGet()
         {
-            if (loginService.CheckCurrentMember() == false)
-            {
-                return RedirectToPage("/Logins/UnauthorizedAccess");
-            }
-
             return Page();
         }
 
@@ -38,6 +33,8 @@ namespace Sejlklub21.Pages.Profiles
             if (ModelState.IsValid)
             {
                 memberCatalog.AddMember(Member);
+
+                loginService.SetCurrentMember(Member);
 
                 return RedirectToPage("/Profiles/Profile");
             }

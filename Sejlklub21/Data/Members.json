@@ -5,7 +5,7 @@
     "Password": "1234",
     "Admin": true,
     "Name": "admin",
-    "Email": "email",
+    "Email": "admin@email.com",
     "Number": "00000000",
     "Address": "address"
   },
@@ -15,7 +15,7 @@
     "Password": "1234",
     "Admin": false,
     "Name": "test1",
-    "Email": "email",
+    "Email": "test1@email.com",
     "Number": "11111111",
     "Address": "address"
   }

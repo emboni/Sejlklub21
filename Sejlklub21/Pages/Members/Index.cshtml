@@ -11,20 +11,36 @@
         width: 100%;
     }
 
-    th, td {
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+
+    td {
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
     }
 
-    tr:nth-child(even) {
-        background-color: #dddddd;
+    td:nth-child(1) {
+        text-align: center;
+    }
+
+    td:last-child {
+        text-align: center;
     }
 </style>
 
 <h1>Members</h1>
 
-<a asp-page="/Members/CreateMember">Create Member</a>
+<a asp-page="/Members/CreateMember">
+    <input type="button" value="Create Member" class="btn btn-light"/>
+</a>
 
 <table>
     <tr>
@@ -66,7 +82,12 @@
             @item.Address
         </td>
         <td>
-            <a asp-page="/Members/EditMember" asp-route-id="@item.Id">Edit</a> | <a asp-page="/Members/DeleteMember" asp-route-id="@item.Id">Delete</a>
+            <a asp-page="/Members/EditMember" asp-route-id="@item.Id">
+                <input type="button" value="Edit" class="btn btn-light"/>
+            </a>
+            <a asp-page="/Members/DeleteMember" asp-route-id="@item.Id">
+                <input type="button" value="Delete" class="btn btn-light" />
+            </a>
         </td>
     </tr>
     }

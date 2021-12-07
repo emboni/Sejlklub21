@@ -17,8 +17,8 @@ namespace Sejlklub21.Pages.Accounts
         private ILoginService loginService;
 
         [BindProperty]
-        [Required(ErrorMessage = "Username Required")]
-        public string Username { get; set; }
+        [Required(ErrorMessage = "Email Required")]
+        public string Email { get; set; }
 
         [BindProperty]
         [Required(ErrorMessage = "Password Required")]
@@ -41,7 +41,7 @@ namespace Sejlklub21.Pages.Accounts
         {
             if (ModelState.IsValid)
             {
-                LoginMember = memberCatalog.Login(Username, Password);
+                LoginMember = memberCatalog.Login(Email, Password);
 
                 if (LoginMember != null)
                 {

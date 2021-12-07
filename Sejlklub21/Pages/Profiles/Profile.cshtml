@@ -9,8 +9,14 @@
         <label class="control-label">@Model.CurrentMember.Name</label>
     </div>
     <div>
-        <a asp-page="/Profiles/EditProfile" asp-route-id="@Model.CurrentMember.Id">Edit</a>
-        <a asp-page="/Profiles/DeleteProfile" asp-route-id="@Model.CurrentMember.Id">Delete</a>
-        <a asp-page="/Logins/Logout">Logout</a>
+        <a asp-page="/Profiles/EditProfile" asp-route-id="@Model.CurrentMember.Id">
+            <input type="button" value="Edit" class="btn btn-light"/>
+        </a>
+        <a asp-page="/Profiles/DeleteProfile" asp-route-id="@Model.CurrentMember.Id">
+            <input type="button" value="Delete" class="btn btn-light"/>
+        </a>
+        <a asp-page="/Logins/Logout">
+            <input type="button" value="Logout" class="btn btn-light"/>
+        </a>
     </div>
 </form>

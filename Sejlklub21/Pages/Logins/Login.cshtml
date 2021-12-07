@@ -10,9 +10,9 @@
     <div class="col-md-4">
         <form method="post">
             <div class="form-group">
-                <label asp-for="@Model.Username" class="control-label"></label>
-                <input asp-for="@Model.Username" class="form-control" />
-                <span asp-validation-for="@Model.Username" class="text-danger"></span>
+                <label asp-for="@Model.Email" class="control-label"></label>
+                <input type="email" asp-for="@Model.Email" class="form-control" />
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.Password" class="control-label"></label>
@@ -21,8 +21,12 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-primary" />
-                <input type="button" value="Sign Up" class="btn btn-link" />
-                <input type="button" value="Forgot Password" class="btn btn-link" />
+                <a asp-page="/Profiles/CreateProfile">
+                    <input type="button" value="Sign Up" class="btn btn-light" />
+                </a>
+                <a asp-page="/Logins/ForgotAccount">
+                    <input type="button" value="Forgot Password" class="btn btn-light" />
+                </a>
             </div>
         </form>
     </div>
