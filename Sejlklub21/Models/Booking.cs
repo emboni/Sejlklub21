@@ -10,8 +10,8 @@ namespace Sejlklub21.Models
     public class Booking : IBooking
     {
         private int _id;
-        private IBoat _boat;
-        private IMember _member;
+        private int _boat;
+        private int _member;
         private Journey _journey;
 
         public int Id
@@ -20,15 +20,15 @@ namespace Sejlklub21.Models
             set { _id = value; }
         }
 
-        [Required]
-        public IBoat Boat
+        //[Required]
+        public int BoatNum
         {
             get { return _boat; }
             set { _boat = value; }
         }
 
-        [Required]
-        public IMember Member
+        //[Required]
+        public int MemberId
         {
             get { return _member; }
             set { _member = value; }

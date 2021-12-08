@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sejlklub21.Exceptions;
 using Sejlklub21.Interfaces;
 
 namespace Sejlklub21.Services
@@ -11,6 +12,9 @@ namespace Sejlklub21.Services
         private string _filePath = "Data\\BookingCatalog.json";
         public void Add(IBooking booking)
         {
+            if (booking.Journey.Start.CompareTo(booking.Journey.End) >= 0)
+                throw new DateNotAfterDate("The booking ends before it starts");
+
             List<IBooking> bookings = GetAllBookings();
             booking.Id = bookings.Count == 0 ? 1 : bookings.Max(x => x.Id) + 1;
             bookings.Add(booking);
@@ -19,6 +23,9 @@ namespace Sejlklub21.Services
 
         public void Update(IBooking booking)
         {
+            if (booking.Journey.Start.CompareTo(booking.Journey.End) >= 0)
+                throw new DateNotAfterDate("The booking ends before it starts");
+
             List<IBooking> bookings = GetAllBookings();
             bookings[bookings.FindIndex(x=>x.Id==booking.Id)] = booking;
             Helpers.JsonFileWriter.WriteToJsonBooking(bookings, _filePath);

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Sejlklub21.Validators;
 
 namespace Sejlklub21.Models
 {
@@ -14,6 +15,7 @@ namespace Sejlklub21.Models
         private string _route;
 
         [Required(ErrorMessage = "Der skal defineres et start tidspunkt til turen")]
+        [DateIsAfterDate]
         public DateTime Start
         {
             get { return _start; }
@@ -28,7 +30,7 @@ namespace Sejlklub21.Models
             set { _end = value; }
         }
 
-        [Required(ErrorMessage = "Der skal være en forklaring på hvor du sejler hænd")]
+        //[Required(ErrorMessage = "Der skal være en forklaring på hvor du sejler hænd")]
         public string Route
         {
             get { return _route; }

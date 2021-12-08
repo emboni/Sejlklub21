@@ -9,8 +9,8 @@ namespace Sejlklub21.Interfaces
     public interface IBooking
     {
         int Id { get; set; }
-        IBoat Boat { get; set; }
-        IMember Member { get; set; }
+        int BoatNum { get; set; }
+        int MemberId { get; set; }
         Journey Journey { get; set; }
     }
 }
