@@ -5,7 +5,7 @@
 
 <h1>Opret en reservation</h1>
 <form method="post">
-    @if (Model.PreExisting == null)
+    @if (Model.PreExisting != null)
     {
     <div class="bg-info">Nogen har alerrade reservert denne båd fra @Model.PreExisting.Start til @Model.PreExisting.End</div>
     }
