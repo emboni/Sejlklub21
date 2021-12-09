@@ -48,10 +48,10 @@ namespace Sejlklub21.Models
 
         public Member()
         {
-            
+
         }
 
-        public override bool Equals(object ? obj)
+        public override bool Equals(object? obj)
         {
             if (((Member)obj).Id == this.Id)
             {
