@@ -15,7 +15,7 @@ namespace Sejlklub21.Interfaces
         IMember Login(string username, string password);
 
         IMember GetMember(int id);
-        IMember GetMemberByUsername(string username);
+        IMember GetMemberByEmail(string email);
         List<IMember> GetAllMembers();
     }
 }

@@ -1,12 +1,24 @@
 [
   {
     "Id": 0,
-    "Username": "admin",
-    "Password": "1234",
     "Admin": true,
+    "Email": "admin@email.com",
+    "Password": "1234",
+    "Username": "admin",
     "Name": "admin",
-    "Email": "email",
-    "Number": "222222",
-    "Address": "address"
+    "Number": "00000000",
+    "Address": "address",
+    "ImageFileName": "cat - 2.jpg"
+  },
+  {
+    "Id": 1,
+    "Admin": false,
+    "Email": "test1@email.com",
+    "Password": "1234",
+    "Username": "test1",
+    "Name": "test1",
+    "Number": "11111111",
+    "Address": "address",
+    "ImageFileName": null
   }
 ]

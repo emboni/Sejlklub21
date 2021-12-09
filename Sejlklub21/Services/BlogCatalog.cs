@@ -9,20 +9,28 @@ namespace Sejlklub21.Services
 {
     public class BlogCatalog : IBlogCatalog
     {
-        private List<IBlogPost> _blogPosts { get; }
+        private List<Blog> _blogPosts { get; }
 
         public BlogCatalog()
         {
-            _blogPosts = new List<IBlogPost>();
-
-            _blogPosts.Add(new Blog(){Id = 1, Title = "Reperation af joller", Content = "Skader på joller er blevet udbedret", Picture = "Billede af reparerede joller", Date = new DateTime(2021, 03, 12)});
-
+            _blogPosts = new List<Blog>();
+            _blogPosts.Add(new Blog(){Id = 1, Title = "Reperation af joller",
+                Date = new DateTime(2021, 03, 12), Content = "Vi fik repareret alle Joller", Picture = "Billede af repererede joller"});
+            _blogPosts.Add(new Blog() {Id = 2, Title = "Junior Seljlads", Date = new DateTime(2021, 06, 20),
+                Content = "Dagssejlads for juniorer", Picture = "Billede af Juniorsejlads"});
+            _blogPosts.Add(new Blog() {Id = 3, Title = "Familiesejlads", Date = new DateTime(2021, 07, 10), Content = "Sejlads for familier",
+                Picture = "Billede fra familie sejlads"});
         }
 
 
-        public void AddBlogPost(IBlogPost blogPost)
+        public void AddBlogPost(Blog blogPost)
         {
             _blogPosts.Add(blogPost);
+        }
+
+        public void AddBlogPost(IBlogPost blogPost)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateBlogPost(IBlogPost blogPost)
@@ -40,9 +48,14 @@ namespace Sejlklub21.Services
             throw new NotImplementedException();
         }
 
-        public List<IBlogPost> GetAllBlogPost()
+        List<IBlogPost> IBlogCatalog.GetAllBlogPost()
         {
-            return _blogPosts;
+            throw new NotImplementedException();
+        }
+
+        public List<Blog> GetAllBlogPost()
+        {
+            return _blogPosts.ToList();
         }
 
 

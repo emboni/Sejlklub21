@@ -24,5 +24,29 @@ namespace Sejlklub21.Services
                 AdminPrivilege = false;
             }
         }
+
+        public bool CheckCurrentMember()
+        {
+            if (CurrentMember != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public string GetImageFileName()
+        {
+            if (CurrentMember.ImageFileName != null)
+            {
+                return CurrentMember.ImageFileName;
+            }
+            else
+            {
+                return "cat.jpg";
+            }
+        }
     }
 }

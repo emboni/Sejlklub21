@@ -16,6 +16,9 @@
 
   <ItemGroup>
     <None Include="Pages\Logins\Login.cshtml" />
+    <None Include="Pages\Profiles\DeleteProfile.cshtml" />
+    <None Include="Pages\Profiles\EditProfile.cshtml" />
+    <None Include="Pages\Profiles\Profile.cshtml" />
   </ItemGroup>
 
 </Project>

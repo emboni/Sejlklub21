@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Sejlklub21.Interfaces
+@inject ILoginService loginService
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,13 +36,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Events/Index">Events</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Logins/Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Logins/Logout">Logout</a>
-                        </li>
                     </ul>
+                    <div>
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                @if (loginService.CheckCurrentMember())
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Logins/Logout">Logout</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Logins/Login">Login</a>
+                                }
+                            </li>
+                            <li class="nav-item">
+                                @if (loginService.CheckCurrentMember())
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Profiles/Profile">
+                                        @loginService.CurrentMember.Name
+                                        <span><img src="~/Images/@loginService.GetImageFileName()" width="28" height="28"/></span>
+                                    </a>
+                                }
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>

@@ -11,19 +11,19 @@ namespace Sejlklub21.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Username Required")]
-        public string Username { get; set; }
+        public bool Admin { get; set; }
+
+        [Required(ErrorMessage = "Email Required")]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Password Required")]
         public string Password { get; set; }
 
-        public bool Admin { get; set; }
+        [Required(ErrorMessage = "Username Required")]
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "Name Required")]
         public string Name { get; set; }
-
-        [Required(ErrorMessage = "Email Required")]
-        public string Email { get; set; }
 
         [Required(ErrorMessage = "Number Required")]
         public string Number { get; set; }
@@ -31,24 +31,27 @@ namespace Sejlklub21.Models
         [Required(ErrorMessage = "Address Required")]
         public string Address { get; set; }
 
-        public Member(int id, string username, string password, bool admin, string name, string email, string number, string address)
+        public string ImageFileName { get; set; }
+
+        public Member(int id, bool admin, string email, string password, string username, string name, string number, string address, string imageFileName)
         {
             Id = id;
-            Username = username;
-            Password = password;
             Admin = admin;
-            Name = name;
             Email = email;
+            Password = password;
+            Username = username;
+            Name = name;
             Number = number;
             Address = address;
+            ImageFileName = imageFileName;
         }
 
         public Member()
         {
-            
+
         }
 
-        public override bool Equals(object ? obj)
+        public override bool Equals(object? obj)
         {
             if (((Member)obj).Id == this.Id)
             {
@@ -58,11 +61,6 @@ namespace Sejlklub21.Models
             {
                 return false;
             }
-        }
-
-        public override string ToString()
-        {
-            return $"Id: {Id} | Name: {Name} | Email: {Email} | Number: {Number} | Address: {Address}";
         }
     }
 }

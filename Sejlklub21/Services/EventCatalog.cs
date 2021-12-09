@@ -15,7 +15,13 @@ namespace Sejlklub21.Services
         {
             eventList = new List<IEvent>();
 
-            eventList.Add(new Event(0, "Navn", DateTime.Now, "Location", "Description"));
+            eventList.Add(new Event(0, "Navn", "Description", "Location", DateTime.Now));
+
+            eventList.Add(new Event(1, "Sejl i december", "Spas og sjov", "Hillerød", new DateTime(2021,12,16)));
+        }
+        public List<IEvent> GetAllEvents()
+        {
+            return eventList;
         }
         public void AddEvent(IEvent @event)
         {
@@ -34,10 +40,7 @@ namespace Sejlklub21.Services
         {
             return eventList[id];
         }
-        public List<IEvent> GetAllEvents()
-        {
-            return eventList;
-        }
+        
 
         public void DeleteEvent(int id)
         {
