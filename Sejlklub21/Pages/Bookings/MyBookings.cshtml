@@ -1,0 +1,35 @@
+﻿@page
+@using Sejlklub21.Interfaces
+@model Sejlklub21.Pages.Bookings.MyBookingsModel
+@{
+}
+
+<h1>Mine reservationer</h1>
+
+@if (Model.Bookings.Count == 0)
+{
+    <h2>Du har ikke nogen reservationer</h2>
+}
+else
+{
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        @foreach (IBooking booking in Model.Bookings)
+        {
+            <tr>
+                <td>@Model.BoatCatalog.GetBoat(booking.BoatNum).Name</td>
+                <td>@booking.Journey.Start</td>
+                <td>@booking.Journey.End</td>
+                <td>@booking.Journey.Route</td>
+                <td><form method="post">
+                    <button asp-page-handler="Delete" asp-route-bookingId="@booking.Id" class="btn btn-danger"
+                            onclick="return confirm('Er du sikker på at du vil slette denne resavertion?');">
+                        Slet
+                    </button>
+                </form></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -25,7 +25,7 @@
             <td>@boat.Location</td>
             <td>@if (Model.LoginService.CurrentMember != null)
                 {
-                    <a class="btn btn-outline-primary" asp-page="/Booking/CreateBooking" asp-route-boatNum="@boat.BoatNum">Reserver</a>
+                    <a class="btn btn-outline-primary" asp-page="/Bookings/CreateBooking" asp-route-boatNum="@boat.BoatNum">Reserver</a>
                 }
                 else
                 {
