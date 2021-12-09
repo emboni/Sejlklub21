@@ -30,7 +30,7 @@ namespace Sejlklub21
             services.AddSingleton<ILoginService, LoginService>();
 
             services.AddTransient<IMemberCatalog, MemberCatalog>();
-            services.AddTransient<IEventCatalog, EventCatalog>();
+            services.AddSingleton<IEventCatalog, EventCatalog>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,50 @@
 ﻿@page
 @model Sejlklub21.Pages.Events.IndexModel
 @{
+    ViewData["Name"] = "index";
 }
 
-<h1>Hej, jeg hedder Emil. Der er antal @Model.EventsList.Count </h1>
+<h1>Begivenheder; der er antal @Model.EventsList.Count begivenheder.</h1>
+<table class="table">
+    <thread>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Place
+            </th>
+            <th>
+                DateTime
+            </th>
+        </tr>
+    </thread>
+    <tbody>
+    @foreach (var IEvent in Model.EventsList)
+    {
+        <tr>
+            <td>
+                @IEvent.Id
+            </td>
+            <td>
+                @IEvent.Name
+            </td>
+            <td>
+                @IEvent.Description
+            </td>
+            <td>
+                @IEvent.Location
+            </td>
+            <td>
+                @IEvent.Date
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
