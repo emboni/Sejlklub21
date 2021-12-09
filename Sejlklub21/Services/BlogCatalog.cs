@@ -23,9 +23,25 @@ namespace Sejlklub21.Services
         }
 
 
-        public void AddBlogPost(Blog blogPost)
+        public void AddBlogPost(Blog bp)
         {
-            _blogPosts.Add(blogPost);
+            List<int> BlogIds = new List<int>();
+
+            foreach (var bps in _blogPosts)
+            {
+                BlogIds.Add(bps.Id);
+            }
+
+            if (BlogIds.Count != 0)
+            {
+                int start = BlogIds.Max();
+                bp.Id = start + 1;
+            }
+            else
+            {
+                bp.Id = 1;
+            }
+            _blogPosts.Add(bp);
         }
 
         public void AddBlogPost(IBlogPost blogPost)
