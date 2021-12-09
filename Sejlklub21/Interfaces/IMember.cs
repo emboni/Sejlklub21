@@ -9,14 +9,16 @@ namespace Sejlklub21.Interfaces
     {
         int Id { get; set; }
 
-        string Username { get; set; }
-        string Password { get; set; }
-
         bool Admin { get; set; }
 
-        string Name { get; set; }
         string Email { get; set; }
+        string Password { get; set; }
+
+        string Username { get; set; }
+        string Name { get; set; }
         string Number { get; set; }
         string Address { get; set; }
+
+        string ImageFileName { get; set; }
     }
 }

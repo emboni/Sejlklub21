@@ -54,7 +54,7 @@
                                 {
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Profiles/Profile">
                                         @loginService.CurrentMember.Name
-                                        <img src="~/Images/cat.jpg" width="28" height="28">
+                                        <span><img src="~/Images/@loginService.GetImageFileName()" width="28" height="28"/></span>
                                     </a>
                                 }
                             </li>

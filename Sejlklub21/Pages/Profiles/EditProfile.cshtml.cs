@@ -45,12 +45,13 @@ namespace Sejlklub21.Pages.Logins
 
         public async Task<IActionResult> OnPostAsync()
         {
-            string file = Path.Combine(hostingEnvironment.ContentRootPath, "uploads", Upload.FileName);
+            string file = Path.Combine(hostingEnvironment.ContentRootPath, "wwwroot\\Images", Upload.FileName);
             using (var fileStream = new FileStream(file, FileMode.Create))
             {
                 await Upload.CopyToAsync(fileStream);
             }
 
+            Member.ImageFileName = Upload.FileName;
             memberCatalog.UpdateMember(Member);
 
             return RedirectToPage("/Profiles/Profile");

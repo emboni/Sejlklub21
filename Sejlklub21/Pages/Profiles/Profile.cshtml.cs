@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
@@ -16,6 +17,8 @@ namespace Sejlklub21.Pages.Logins
         [BindProperty]
         public IMember CurrentMember { get; set; }
 
+        public string ImageFileName { get; set; }
+
         public ProfileModel(ILoginService service)
         {
             loginService = service;
@@ -29,6 +32,8 @@ namespace Sejlklub21.Pages.Logins
             }
 
             CurrentMember = loginService.CurrentMember;
+
+            ImageFileName = loginService.GetImageFileName();
 
             return Page();
         }

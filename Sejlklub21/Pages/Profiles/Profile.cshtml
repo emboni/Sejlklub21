@@ -1,4 +1,6 @@
 ﻿@page
+@using Sejlklub21.Interfaces
+@inject ILoginService loginService;
 @model Sejlklub21.Pages.Logins.ProfileModel
 @{
     ViewData["Title"] = "Profile";
@@ -12,7 +14,7 @@
 
 <form>
     <div>
-        <img src="~/Images/cat.jpg" width="128" height="128">
+        <img src="~/Images/@Model.ImageFileName" width="128" height="128"/>
     </div>
     <div>
         <label class="control-label">Name: @Model.CurrentMember.Name</label>

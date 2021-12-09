@@ -40,10 +40,7 @@ namespace Sejlklub21.Helpers
             {
                 string message = fnfex.Message;
 
-                return new List<IMember>()
-                {
-                    new Member(0, "admin", "1234", true, "admin", "admin@email.com", "00000000", "address")
-                };
+                return null;
             }
         }
     }

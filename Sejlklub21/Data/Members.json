@@ -1,22 +1,24 @@
 [
   {
     "Id": 0,
-    "Username": "admin",
-    "Password": "1234",
     "Admin": true,
-    "Name": "admin",
     "Email": "admin@email.com",
+    "Password": "1234",
+    "Username": "admin",
+    "Name": "admin",
     "Number": "00000000",
-    "Address": "address"
+    "Address": "address",
+    "ImageFileName": "cat - Copy.jpg"
   },
   {
     "Id": 1,
-    "Username": "test1",
-    "Password": "1234",
     "Admin": false,
-    "Name": "test1",
     "Email": "test1@email.com",
+    "Password": "1234",
+    "Username": "test1",
+    "Name": "test1",
     "Number": "11111111",
-    "Address": "address"
+    "Address": "address",
+    "ImageFileName": null
   }
 ]

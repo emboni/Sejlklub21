@@ -36,5 +36,17 @@ namespace Sejlklub21.Services
                 return false;
             }
         }
+
+        public string GetImageFileName()
+        {
+            if (CurrentMember.ImageFileName != null)
+            {
+                return CurrentMember.ImageFileName;
+            }
+            else
+            {
+                return "cat.jpg";
+            }
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace Sejlklub21.Interfaces
 
         void SetCurrentMember(IMember member);
         bool CheckCurrentMember();
+        string GetImageFileName();
     }
 }
