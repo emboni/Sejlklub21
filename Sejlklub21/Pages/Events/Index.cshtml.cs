@@ -5,21 +5,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
+using Sejlklub21.Services;
 
 namespace Sejlklub21.Pages.Events
 {
     public class IndexModel : PageModel
     {
-        public List<IEvent> EventsList { get; set; }
+        private EventCatalog iEventCatalog;
+        
+        public List<IEvent> EventsList { get; private set; }
 
-        public IndexModel(IEventCatalog eventCatalog) //Nu får jeg injectet mit eventCatalog - får adgang til eventCatalog
+        //public IndexModel(IEventCatalog eventCatalog) //Nu får jeg injectet mit eventCatalog - får adgang til eventCatalog
+        //{
+        //    EventsList = eventCatalog.GetAllEvents(); //så får jeg fat i alle eventsene
+        //}
+
+        public IndexModel()
         {
-            EventsList = eventCatalog.GetAllEvents(); //så får jeg fat i alle eventsene
+            iEventCatalog = new EventCatalog();
         }
         public void OnGet()
         {
-
-
+            EventsList = iEventCatalog.GetAllEvents();
         }
     }
 }
