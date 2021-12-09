@@ -11,7 +11,7 @@ namespace Sejlklub21.Helpers
 {
     public class JsonFileWriter
     {
-        public static void WriteToJsonBoat(List<Boat> @events, string JsonFileName)
+        public static void WriteToJsonBoat(List<IBoat> @events, string JsonFileName)
         {
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(@events, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(JsonFileName, output);
@@ -23,7 +23,7 @@ namespace Sejlklub21.Helpers
             File.WriteAllText(JsonFileName, output);
         }
 
-        public static void WriteToJsonBlog(List<Blog> @events, string JsonFileName)
+        public static void WriteToJsonBlog(List<IBlogPost> @events, string JsonFileName)
         {
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(@events, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(JsonFileName, output);

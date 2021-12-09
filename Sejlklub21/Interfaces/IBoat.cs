@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sejlklub21.Models;
 
 namespace Sejlklub21.Interfaces
 {
-    interface IBoat
+    public interface IBoat
     {
-        int BoatNum { get; }
+        int BoatNum { get; set; }
         string Model { get; }
 
         string Name { get; }
@@ -16,6 +17,8 @@ namespace Sejlklub21.Interfaces
 
         string Location { get; }
 
-        List<IDamage> Damages { get; }
+        List<Damage> Damages { get; set; }
+
+        IDamage GetDamage(int id);
     }
 }

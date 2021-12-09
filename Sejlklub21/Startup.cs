@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Sejlklub21.Interfaces;
+using Sejlklub21.Models;
 using Sejlklub21.Services;
 
 namespace Sejlklub21
@@ -30,6 +31,8 @@ namespace Sejlklub21
             services.AddSingleton<ILoginService, LoginService>();
 
             services.AddTransient<IMemberCatalog, MemberCatalog>();
+            services.AddTransient<IEventCatalog, EventCatalog>();
+            services.AddTransient<IBoatCatalog, BoatCatalog>();
             services.AddSingleton<IEventCatalog, EventCatalog>();
         }
 

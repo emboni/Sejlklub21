@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Sejlklub21.Interfaces
 {
-    interface IBoatCatalog
+    public interface IBoatCatalog
     {
         void Add(IBoat boat);
 

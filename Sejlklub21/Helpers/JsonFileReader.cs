@@ -11,10 +11,10 @@ namespace Sejlklub21.Helpers
 {
     public class JsonFileReader
     {
-        public static List<Boat> ReadJsonBoats(string jsonFileName)
+        public static List<IBoat> ReadJsonBoats(string jsonFileName)
         {
             string jsonString = File.ReadAllText(jsonFileName);
-            return JsonSerializer.Deserialize<List<Boat>>(jsonString);
+            return JsonSerializer.Deserialize<List<Boat>>(jsonString)?.ToList<IBoat>();
         }
 
         public static List<Event> ReadJsonEvent(string jsonFileName)
@@ -23,10 +23,10 @@ namespace Sejlklub21.Helpers
             return JsonSerializer.Deserialize<List<Event>>(jsonString);
         }
 
-        public static List<Blog> ReadJsonBlog(string jsonFileName)
+        public static List<IBlogPost> ReadJsonBlog(string jsonFileName)
         {
             string jsonString = File.ReadAllText(jsonFileName);
-            return JsonSerializer.Deserialize<List<Blog>>(jsonString);
+            return JsonSerializer.Deserialize<List<IBlogPost>>(jsonString);
         }
 
         public static List<IMember> ReadJsonMembers(string jsonFileName)

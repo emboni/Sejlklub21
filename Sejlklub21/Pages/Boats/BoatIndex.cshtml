@@ -1,0 +1,37 @@
+﻿@page
+@using Sejlklub21.Interfaces
+@model Sejlklub21.Pages.Boats.BoatIndexModel
+@{
+}
+
+<h1>Alle både.</h1>
+<p><a asp-page="CreateBoat">Lav en ny båd</a></p>
+<table class="table">
+    <thead>
+    <tr>
+        <td>Navn</td>
+        <td>Model</td>
+        <td>Spesificationer</td>
+        <td>Lokation</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (IBoat boat in Model.Boats)
+    {
+        <tr>
+            <td>@boat.Name</td>
+            <td>@boat.Model</td>
+            <td>@boat.Specification</td>
+            <td>@boat.Location</td>
+            <td>
+                <form method="post">
+                    <a asp-page="Damages" asp-route-id="@boat.BoatNum" class="btn btn-outline-light">Skader</a>
+                    <a asp-page="EditBoat" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Rediger</a>
+                    <button asp-page-handler="delete" asp-route-id="@boat.BoatNum" class="btn btn-danger"
+                            onclick="return confirm('Er du sikker på at du vil slette denne båd?');">Slet</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

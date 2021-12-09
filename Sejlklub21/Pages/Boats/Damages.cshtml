@@ -1,0 +1,38 @@
+﻿@page
+@using Sejlklub21.Models
+@using Sejlklub21.Interfaces
+@model Sejlklub21.Pages.Boats.DamagesModel
+@{
+}
+
+<h1>Skader for "@Model.Boat.Name"</h1>
+<a asp-page="CreateDamage" asp-route-boatNum="@Model.BoatNumber">Opret en skade for "@Model.Boat.Name"</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Dato</th>
+        <th>Beskrivelse</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (IDamage dmg in Model.Boat.Damages)
+    {
+        <tr>
+            <td class="col-1">@dmg.Date</td>
+            <td class="col-4">@dmg.Description</td>
+            <td class="col-1">@dmg.Status</td>
+            <td>
+                <form method="post">
+                    <a class="btn "></a>
+                    <a asp-page="EditDamage" asp-route-boatId="@Model.BoatNumber" asp-route-dmgId="@dmg.Id" class="btn btn-outline-secondary">Rediger</a>
+                    <button asp-page-handler="delete" asp-route-dmgId="@dmg.Id" class="btn btn-danger"
+                            onclick="return confirm('Er du sikker på at du vil slette denne skade?');">
+                        Slet
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

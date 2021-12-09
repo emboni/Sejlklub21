@@ -7,6 +7,12 @@ namespace Sejlklub21.Models
 {
     public class DamageStatus
     {
-        public enum Status {}
+        public enum Status
+        {
+            IkkeBehandlet,
+            Påbegyndt,
+            Fikset,
+            KanIkkeReperares
+        }
     }
 }
