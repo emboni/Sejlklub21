@@ -13,6 +13,8 @@ namespace Sejlklub21.Interfaces
 
         void Delete(int bookingId);
 
+        void MarkAsComplete(int bookingId);
+
         IBooking GetBooking(int bookingId);
 
         List<IBooking> GetAllBookings();

@@ -38,6 +38,13 @@ namespace Sejlklub21.Services
             Helpers.JsonFileWriter.WriteToJsonBooking(bookings, _filePath);
         }
 
+        public void MarkAsComplete(int bookingId)
+        {
+            IBooking b = GetBooking(bookingId);
+            b.Completed = true;
+            Update(b);
+        }
+
         public IBooking GetBooking(int bookingId)
         {
             List<IBooking> bookings = GetAllBookings();

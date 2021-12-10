@@ -11,6 +11,7 @@ namespace Sejlklub21.Interfaces
         int Id { get; set; }
         int BoatNum { get; set; }
         int MemberId { get; set; }
+        bool Completed { get; set; }
         Journey Journey { get; set; }
     }
 }

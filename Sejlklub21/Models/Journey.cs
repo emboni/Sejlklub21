@@ -15,7 +15,6 @@ namespace Sejlklub21.Models
         private string _route;
 
         [Required(ErrorMessage = "Der skal defineres et start tidspunkt til turen")]
-        [DateIsAfterDate]
         public DateTime Start
         {
             get { return _start; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace Sejlklub21.Models
         private int _id;
         private int _boat;
         private int _member;
+        private bool _completed;
         private Journey _journey;
 
         public int Id
@@ -32,6 +34,13 @@ namespace Sejlklub21.Models
         {
             get { return _member; }
             set { _member = value; }
+        }
+
+        [DisplayName("Tur er færdig")]
+        public bool Completed
+        {
+            get { return _completed; }
+            set { _completed = value; }
         }
 
         [Required]

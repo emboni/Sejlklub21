@@ -1,9 +1,47 @@
 ﻿@page
+@using Sejlklub21.Interfaces
 @model IndexModel
+@inject IMemberCatalog memberCatalog;
+@inject IBoatCatalog boatCatalog;
+@inject ILoginService loginService;
 @{
     ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-6">Welcome</h1>
+</div>
+<div class="col-7">
+    <table>
+        <thead>
+        <tr class="h3">
+            Der er følgene både i brug
+        </tr>
+        <tr>
+            <th>Båd</th>
+            <th>Reserveret af</th>
+            <th>Forventet hjemme</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var booking in Model.CurrentBookings)
+        {
+            <tr>
+                <td class="col-2">@boatCatalog.GetBoat(booking.BoatNum).Name</td>
+                <td class="col-2">@memberCatalog.GetMember(booking.MemberId).Name</td>
+                <td class="col-2">@booking.Journey.End</td>
+                @if (loginService.AdminPrivilege || (loginService.CheckCurrentMember() && loginService.CurrentMember.Id == booking.MemberId))
+                {
+                    <td class="col-1">
+                        <form method="post">
+                            <button asp-page-handler="complete" asp-route-bookingId="@booking.Id"
+                                    onclick="return confirm('Er du sikker på at du vil marker denne reservation som over?')"
+                                    class="btn btn-outline-secondary">Færdig</button>
+                            </form>
+                    </td>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>

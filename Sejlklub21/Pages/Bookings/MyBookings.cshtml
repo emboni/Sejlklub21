@@ -23,6 +23,10 @@ else
                 <td>@booking.Journey.End</td>
                 <td>@booking.Journey.Route</td>
                 <td><form method="post">
+                    <a class="btn btn-secondary" asp-page="/Bookings/EditBooking" 
+                       asp-route-boatNum="@booking.BoatNum"
+                       asp-route-bookingId="@booking.Id"
+                       asp-route-memberId="@booking.MemberId">Rediger</a>
                     <button asp-page-handler="Delete" asp-route-bookingId="@booking.Id" class="btn btn-danger"
                             onclick="return confirm('Er du sikker på at du vil slette denne resavertion?');">
                         Slet

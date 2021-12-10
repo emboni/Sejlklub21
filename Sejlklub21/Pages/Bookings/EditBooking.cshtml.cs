@@ -8,21 +8,20 @@ using Sejlklub21.Exceptions;
 using Sejlklub21.Interfaces;
 using Sejlklub21.Models;
 
-namespace Sejlklub21.Pages.Boats
+namespace Sejlklub21.Pages.Bookings
 {
-    public class CreateBookingModel : PageModel
+    public class EditBookingModel : PageModel
     {
         private ILoginService _loginService;
         private IBoatCatalog _boatCatalog;
         private IBookingCatalog _bookingCatalog;
-        [BindProperty] 
+        [BindProperty]
         public Models.Booking Booking { get; set; }
 
-        public bool StartIsBoforeNow { get; set; }
         public bool EndIsAfterStart { get; set; }
         public Journey PreExisting { get; set; }
 
-        public CreateBookingModel(ILoginService loginService, IBoatCatalog boatCatalog, IBookingCatalog bookingCatalog)
+        public EditBookingModel(ILoginService loginService, IBoatCatalog boatCatalog, IBookingCatalog bookingCatalog)
         {
             _loginService = loginService;
             _boatCatalog = boatCatalog;
@@ -31,30 +30,26 @@ namespace Sejlklub21.Pages.Boats
             PreExisting = null;
         }
 
-        public void OnGet()
+        public void OnGet(int bookingId)
         {
+            Booking = (Booking)_bookingCatalog.GetBooking(bookingId);
         }
 
-        public IActionResult OnPost(int boatNum)
+        public IActionResult OnPost(int boatNum, int bookingId, int memberId)
         {
-            Booking.BoatNum = boatNum;
-            Booking.MemberId = _loginService.CurrentMember.Id;
-            Booking.Completed = false;
-            
             #region Validations
             EndIsAfterStart = true;
+            Booking.Id = bookingId;
+            Booking.BoatNum = boatNum;
+            Booking.MemberId = memberId;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            if (Booking.Journey.Start.CompareTo(DateTime.Now) < 0)
-            {
-                StartIsBoforeNow = true;
-                return Page();
-            }
-            
             var bookings = (from b in _bookingCatalog.GetAllBookings()
+                where b.Id != bookingId
                 where b.BoatNum == boatNum
                 where b.Journey.End.CompareTo(Booking.Journey.Start) > 0 //removes those that have ended before this begins
                 where b.Journey.Start.CompareTo(Booking.Journey.End) < 0 //removes those that start after this ends
@@ -68,7 +63,7 @@ namespace Sejlklub21.Pages.Boats
             
             try
             {
-                _bookingCatalog.Add(Booking);
+                _bookingCatalog.Update(Booking);
             }
             catch (DateNotAfterDate)
             {
@@ -78,7 +73,7 @@ namespace Sejlklub21.Pages.Boats
             #endregion
 
 
-            return RedirectToPage("/Boats/BoatIndex");
+            return RedirectToPage("/Bookings/MyBookings");
         }
     }
 }

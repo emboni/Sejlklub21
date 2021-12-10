@@ -3,29 +3,21 @@
     "Id": 1,
     "BoatNum": 1,
     "MemberId": 0,
+    "Completed": true,
     "Journey": {
-      "Start": "2021-12-07T10:56:00",
-      "End": "2021-12-07T10:56:00",
+      "Start": "2021-12-10T12:25:00",
+      "End": "2021-12-10T15:24:00",
       "Route": null
     }
   },
   {
     "Id": 2,
-    "BoatNum": 1,
-    "MemberId": 0,
+    "BoatNum": 2,
+    "MemberId": 1,
+    "Completed": false,
     "Journey": {
-      "Start": "2021-12-07T10:57:00",
-      "End": "2021-12-07T10:57:00",
-      "Route": null
-    }
-  },
-  {
-    "Id": 3,
-    "BoatNum": 1,
-    "MemberId": 0,
-    "Journey": {
-      "Start": "2021-12-11T13:32:00",
-      "End": "2021-12-12T13:32:00",
+      "Start": "2021-12-10T13:12:00",
+      "End": "2021-12-10T16:11:00",
       "Route": null
     }
   }

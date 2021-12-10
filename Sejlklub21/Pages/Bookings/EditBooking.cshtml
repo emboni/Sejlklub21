@@ -1,18 +1,15 @@
 ﻿@page
-@model Sejlklub21.Pages.Boats.CreateBookingModel
+@model Sejlklub21.Pages.Bookings.EditBookingModel
 @{
 }
 
 <h1>Opret en reservation</h1>
 <form method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    @if (Model.StartIsBoforeNow)
+    @if (Model.PreExisting != null)
     {
-        <span class="text-danger">En reservation kan ikke starte før nu</span>
-    }else if (Model.PreExisting != null)
-    {
-    <div class="bg-info">Nogen har alerrade reservert denne båd fra @Model.PreExisting.Start til @Model.PreExisting.End</div>
+        <div class="bg-info">Nogen har alerrade reservert denne båd fra @Model.PreExisting.Start til @Model.PreExisting.End</div>
     }
+    <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Booking.Journey.Start" class="control-label"></label>
         <input asp-for="Booking.Journey.Start" class="form-control" />
@@ -32,5 +29,9 @@
         <input asp-for="Booking.Journey.Route" class="form-control" />
         <span asp-validation-for="Booking.Journey.Route" class="text-danger"></span>
     </div>
-    <input type="submit" value="Opret" />
+    <div class="form-group">
+        <label asp-for="Booking.Completed" class="control-label"></label>
+        <input asp-for="Booking.Completed" class="form-control"/>
+    </div>
+    <input type="submit" value="Ret" />
 </form>
