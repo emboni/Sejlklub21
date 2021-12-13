@@ -14,6 +14,9 @@ namespace Sejlklub21.Pages.Members
         private IMemberCatalog memberCatalog;
         private ILoginService loginService;
 
+        public bool Error { get; set; }
+        public string ErrorMessage { get; set; }
+
         [BindProperty]
         public Member Member { get; set; }
 
@@ -37,7 +40,15 @@ namespace Sejlklub21.Pages.Members
         {
             if (ModelState.IsValid)
             {
-                memberCatalog.AddMember(Member);
+                try
+                {
+                    memberCatalog.AddMember(Member);
+                }
+                catch (Exception e)
+                {
+                    Error = true;
+                    ErrorMessage = e.Message;
+                }
 
                 return RedirectToPage("/Members/Index");
             }

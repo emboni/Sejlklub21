@@ -10,6 +10,11 @@
     }
 </style>
 
+@if (Model.Error)
+{
+    <span>@Model.ErrorMessage</span>
+}
+
 <h1>Create Member</h1>
 
 <div class="row">
@@ -35,7 +40,7 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
                 <a asp-page="/Members/Index">
-                    <input type="button" value="Cancel" class="btn btn-light"/>
+                    <input type="button" value="Cancel" class="btn btn-light" />
                 </a>
             </div>
         </form>

@@ -17,6 +17,12 @@ namespace Sejlklub21.Helpers
             File.WriteAllText(JsonFileName, output);
         }
 
+        public static void WriteJsonBoatType(List<IBoatType> boatTypes, string JsonFileName)
+        {
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(boatTypes, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(JsonFileName, output);
+        }
+
         public static void WriteToJsonEvent(List<Event> @events, string JsonFileName)
         {
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(@events, Newtonsoft.Json.Formatting.Indented);

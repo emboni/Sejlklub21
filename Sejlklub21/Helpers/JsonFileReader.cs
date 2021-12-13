@@ -17,6 +17,12 @@ namespace Sejlklub21.Helpers
             return JsonSerializer.Deserialize<List<Boat>>(jsonString)?.ToList<IBoat>();
         }
 
+        public static List<IBoatType> ReadJsonBoatTypes(string jsonFileName)
+        {
+            string jsonString = File.ReadAllText(jsonFileName);
+            return JsonSerializer.Deserialize<List<BoatType>>(jsonString)?.ToList<IBoatType>();
+        }
+
         public static List<Event> ReadJsonEvent(string jsonFileName)
         {
             string jsonString = File.ReadAllText(jsonFileName);
@@ -31,17 +37,8 @@ namespace Sejlklub21.Helpers
 
         public static List<IMember> ReadJsonMembers(string jsonFileName)
         {
-            try
-            {
-                string jsonString = File.ReadAllText(jsonFileName);
-                return JsonSerializer.Deserialize<List<Member>>(jsonString).ToList<IMember>();
-            }
-            catch (FileNotFoundException fnfex)
-            {
-                string message = fnfex.Message;
-
-                return null;
-            }
+            string jsonString = File.ReadAllText(jsonFileName);
+            return JsonSerializer.Deserialize<List<Member>>(jsonString).ToList<IMember>();
         }
 
         public static List<IBooking> ReadJsonBookings(string jsonFileName)

@@ -10,6 +10,11 @@
     }
 </style>
 
+@if (Model.Error)
+{
+    <span>@Model.ErrorMessage</span>
+}
+
 <h1>Login</h1>
 
 <div class="row">

@@ -20,5 +20,7 @@ namespace Sejlklub21.Interfaces
         string Address { get; set; }
 
         string ImageFileName { get; set; }
+
+        List<int> AllowedBoatTypes { get; set; }
     }
 }
