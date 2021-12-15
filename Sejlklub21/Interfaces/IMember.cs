@@ -21,6 +21,6 @@ namespace Sejlklub21.Interfaces
 
         string ImageFileName { get; set; }
 
-        List<int> AllowedBoatTypes { get; set; }
+        List<IBoatType> AllowedBoatTypes { get; set; }
     }
 }

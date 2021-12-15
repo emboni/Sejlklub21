@@ -13,14 +13,21 @@ namespace Sejlklub21.Pages.Members
     {
         private IMemberCatalog memberCatalog;
         private ILoginService loginService;
+        public IBoatTypeCatalog boatTypeCatalog;
 
         [BindProperty]
         public Member Member { get; set; }
 
-        public EditMemberModel(IMemberCatalog catalog, ILoginService service)
+        public List<bool> AllowedBools { get; set; }
+        private List<IBoatType> AllowedBoatTypes { get; set; }
+
+        public EditMemberModel(IMemberCatalog catalog, ILoginService service, IBoatTypeCatalog typeCatalog)
         {
             memberCatalog = catalog;
             loginService = service;
+            boatTypeCatalog = typeCatalog;
+
+            AllowedBools = new List<bool>(new bool[boatTypeCatalog.GetAllTypes().Count]);
         }
 
         public IActionResult OnGet(int id)
@@ -37,6 +44,16 @@ namespace Sejlklub21.Pages.Members
 
         public IActionResult OnPost()
         {
+            for (int i = 0; i < AllowedBools.Count; i++)
+            {
+                if (AllowedBools[i] == true)
+                {
+                    AllowedBoatTypes.Add(boatTypeCatalog.GetType(i));
+                }
+            }
+
+            Member.AllowedBoatTypes = AllowedBoatTypes;
+
             memberCatalog.UpdateMember(Member);
 
             return RedirectToPage("/Members/Index");

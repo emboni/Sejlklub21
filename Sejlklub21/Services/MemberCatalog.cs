@@ -11,7 +11,7 @@ namespace Sejlklub21.Services
 {
     public class MemberCatalog : IMemberCatalog
     {
-        private string jsonFilePath = @"Data\Members.json";
+        private string jsonFilePath = @"Data\MemberCatalog.json";
 
         public void AddMember(IMember member)
         {

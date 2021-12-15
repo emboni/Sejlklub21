@@ -33,9 +33,9 @@ namespace Sejlklub21.Models
 
         public string ImageFileName { get; set; }
 
-        public List<int> AllowedBoatTypes { get; set; }
+        public List<IBoatType> AllowedBoatTypes { get; set; }
 
-        public Member(int id, bool admin, string email, string password, string username, string name, string number, string address, string imageFileName, List<int> allowedBoatTypes)
+        public Member(int id, bool admin, string email, string password, string username, string name, string number, string address, string imageFileName, List<IBoatType> allowedBoatTypes)
         {
             Id = id;
             Admin = admin;
