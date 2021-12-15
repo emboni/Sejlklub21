@@ -6,37 +6,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
 using Sejlklub21.Models;
-using Sejlklub21.Services;
 
 namespace Sejlklub21.Pages.Blogs
 {
-    public class CreateBlogPostModel : PageModel
+    public class DeleteBlogPostModel : PageModel
     {
-        //private BlogCatalog Bloca;
-        private IBlogCatalog Bloca;
+        private IBlogCatalog bloca;
 
         [BindProperty]
         public Blog Blog { get; set; }
 
-        public CreateBlogPostModel(IBlogCatalog catalog)
+        public DeleteBlogPostModel(IBlogCatalog catalog)
         {
-            //Bloca = BlogCatalog.Instance;
-            Bloca = catalog;
+            bloca = catalog;
         }
 
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
+            Blog = (Blog) bloca.GetBlogPost(id);
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            Bloca.AddBlogPost(Blog);
+            bloca.DeleteBlogPost(Blog.Id);
             return RedirectToPage("Index");
         }
     }

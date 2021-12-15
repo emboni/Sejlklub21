@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -15,12 +16,14 @@ namespace Sejlklub21.Models
         private string _content;
         private string _picture;
 
+        [Required(ErrorMessage = "Titel kræves")]
         public string Title
         {
             get { return _title; }
             set { _title = value; }
         }
 
+       [Required(ErrorMessage = "Beskrivelse kræves")]
         public string Content
         {
             get { return _content; }
@@ -38,6 +41,7 @@ namespace Sejlklub21.Models
             get {return _id; }
             set { _id = value; }        }
 
+        [Required]
         public DateTime Date
         {
             get {return _date; }

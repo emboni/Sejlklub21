@@ -11,20 +11,23 @@
         <form method="post">
             <input type="hidden" asp-for="@Model.Blog.Id" class="form-control"/>
             <div class="form-group">
-                <label asp-for="@Model.Blog.Title" class="control-label"></label>
-                <input asp-for="@Model.Blog.Title" class="form-control"/>
+                <label asp-for="@Model.Blog.Title" class="control-label">Titel</label>
+                <input asp-for="@Model.Blog.Title" class="form-control" />
+                <span asp-validation-for="@Model.Blog.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Blog.Date" class="control-label"></label>
-                <input asp-for="@Model.Blog.Date" class="form-control"/>
+                <label asp-for="@Model.Blog.Date" class="control-label">Dato og Tidspunkt</label>
+                <input asp-for="@Model.Blog.Date" class="form-control" />
+                <span asp-validation-for="@Model.Blog.Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Blog.Content" class="control-label"></label>
-                <input asp-for="@Model.Blog.Content" class="form-control"/>
+                <label asp-for="@Model.Blog.Content" class="control-label">Beskrivelse</label>
+                <input asp-for="@Model.Blog.Content" class="form-control" />
+                <span asp-validation-for="@Model.Blog.Content" class="text-danger"></span>
             </div>
             ´
             <div class="form-group">
-                <label asp-for="@Model.Blog.Picture" class="control-label"></label>
+                <label asp-for="@Model.Blog.Picture" class="control-label">Billede</label>
                 <input asp-for="@Model.Blog.Picture" class="form-control"/>
             </div>
             <div class="form-group">
@@ -32,4 +35,7 @@
             </div>
         </form>
     </div>
+</div>
+<div>
+    <a asp-page="index">Tilbage til liste</a>
 </div>

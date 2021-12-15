@@ -64,9 +64,15 @@ namespace Sejlklub21.Services
             }
         }
 
-        public void DeleteBlogPost(int Id)
+        public void DeleteBlogPost(int id)
         {
-            throw new NotImplementedException();
+            foreach (var post in GetAllBlogPost())
+            {
+                if (post.Id == id)
+                {
+                    _blogPosts.Remove(post);
+                }
+            }
         }
 
         public IBlogPost GetBlogPost(int id)
