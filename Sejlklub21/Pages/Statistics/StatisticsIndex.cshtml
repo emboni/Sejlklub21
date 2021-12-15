@@ -1,0 +1,29 @@
+﻿@page
+@model Sejlklub21.Pages.Statistics.StatisticsIndexModel
+@{
+}
+
+<h1>Statestic</h1>
+<div style="float:left" class="col-6 chart-container" width="600" height="400">
+    <canvas id="Boats"></canvas>
+</div>
+<div style="float:left" class="col-6 chart-container" width="600" height="400">
+    <canvas id="Member"></canvas>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        var ctx = document.getElementById('Boats');
+        var Boats = new Chart(ctx, @Html.Raw(Model.BoatJson) );
+
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        var ctx = document.getElementById('Member');
+        var myChart= new Chart(ctx, @Html.Raw(Model.MemberJson) );
+
+    });
+</script>
