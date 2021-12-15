@@ -9,11 +9,11 @@ namespace Sejlklub21.Services
 {
     public class BlogCatalog : IBlogCatalog
     {
-        private List<Blog> _blogPosts { get; }
+        private List<IBlogPost> _blogPosts { get; }
 
         public BlogCatalog()
         {
-            _blogPosts = new List<Blog>();
+            _blogPosts = new List<IBlogPost>();
             _blogPosts.Add(new Blog(){Id = 1, Title = "Reperation af joller",
                 Date = new DateTime(2021, 03, 12), Content = "Vi fik repareret alle Joller", Picture = "Billede af repererede joller"});
             _blogPosts.Add(new Blog() {Id = 2, Title = "Junior Seljlads", Date = new DateTime(2021, 06, 20),
@@ -23,35 +23,45 @@ namespace Sejlklub21.Services
         }
 
 
-        public void AddBlogPost(Blog bp)
-        {
-            List<int> BlogIds = new List<int>();
-
-            foreach (var bps in _blogPosts)
-            {
-                BlogIds.Add(bps.Id);
-            }
-
-            if (BlogIds.Count != 0)
-            {
-                int start = BlogIds.Max();
-                bp.Id = start + 1;
-            }
-            else
-            {
-                bp.Id = 1;
-            }
-            _blogPosts.Add(bp);
-        }
 
         public void AddBlogPost(IBlogPost blogPost)
         {
-            throw new NotImplementedException();
+            List<int> blogIds = new List<int>();
+
+            foreach (var bps in _blogPosts)
+            {
+                blogIds.Add(bps.Id);
+            }
+
+            if (blogIds.Count != 0)
+            {
+                int start = blogIds.Max();
+                blogPost.Id = start + 1;
+            }
+            else
+            {
+                blogPost.Id = 1;
+            }
+            _blogPosts.Add(blogPost);
         }
+
 
         public void UpdateBlogPost(IBlogPost blogPost)
         {
-            throw new NotImplementedException();
+            if (blogPost != null)
+            {
+                foreach (var post in GetAllBlogPost())
+                {
+                    if (post.Id == blogPost.Id)
+                    {
+                        post.Id = blogPost.Id;
+                        post.Title = blogPost.Title;
+                        post.Date = blogPost.Date;
+                        post.Content = blogPost.Content;
+                        post.Picture = blogPost.Picture;
+                    }
+                }
+            }
         }
 
         public void DeleteBlogPost(int Id)
@@ -61,18 +71,22 @@ namespace Sejlklub21.Services
 
         public IBlogPost GetBlogPost(int id)
         {
-            throw new NotImplementedException();
+            foreach (var blogPost in GetAllBlogPost())
+            {
+                if (blogPost.Id == id)
+                {
+                    return blogPost;
+                }
+            }
+
+            return new Blog();
         }
 
-        List<IBlogPost> IBlogCatalog.GetAllBlogPost()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Blog> GetAllBlogPost()
+        public List<IBlogPost> GetAllBlogPost()
         {
             return _blogPosts.ToList();
         }
+
 
 
 

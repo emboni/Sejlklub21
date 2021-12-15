@@ -13,15 +13,14 @@ namespace Sejlklub21.Pages.Blogs
 {
     public class IndexModel : PageModel
     {
+        private IBlogCatalog _bloca;
 
-        private Blog Blog { get; set; }
-
-        public List<Blog> Blogs { get; private set; }
+        public List<IBlogPost> Blogs { get; private set; }
 
 
-        public IndexModel()
+        public IndexModel(IBlogCatalog catalog)
         {
-            Blogs = new BlogCatalog().GetAllBlogPost();
+            _bloca = catalog;
         }
 
 
@@ -29,7 +28,7 @@ namespace Sejlklub21.Pages.Blogs
 
         public void OnGet()
         {
-            
+            Blogs = _bloca.GetAllBlogPost();
         }
     }
 }

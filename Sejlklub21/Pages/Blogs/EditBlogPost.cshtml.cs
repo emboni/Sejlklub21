@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,29 +11,32 @@ using Sejlklub21.Services;
 
 namespace Sejlklub21.Pages.Blogs
 {
-    public class CreateBlogPostModel : PageModel
+    public class EditBlogPostModel : PageModel
     {
-        //private BlogCatalog Bloca;
-        private IBlogCatalog Bloca;
+        private IBlogCatalog bloca;
 
         [BindProperty]
         public Blog Blog { get; set; }
 
-        public CreateBlogPostModel(IBlogCatalog catalog)
+        public EditBlogPostModel(IBlogCatalog catalog)
         {
-            //Bloca = BlogCatalog.Instance;
-            Bloca = catalog;
+            bloca = catalog;
         }
 
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
+            Blog = (Blog) bloca.GetBlogPost(id);
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            Bloca.AddBlogPost(Blog);
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            bloca.UpdateBlogPost(Blog);
             return RedirectToPage("Index");
         }
     }
