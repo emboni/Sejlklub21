@@ -67,9 +67,9 @@ namespace Sejlklub21.Models
             return $"id {_id} title {_title} date {_date} content {_content} picture {_picture}";
         }
 
-        public List<Blog> GetAllBlogPost()
-        {
-            return new List<Blog>();
-        }
+        //public List<Blog> GetAllBlogPost()
+        //{
+        //    return new List<Blog>();
+        //}
     }
 }
