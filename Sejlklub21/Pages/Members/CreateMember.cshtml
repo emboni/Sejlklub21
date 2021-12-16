@@ -4,6 +4,12 @@
     ViewData["Title"] = "Create Member";
 }
 
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+
 <h1>Create Member</h1>
 
 <div class="row">
@@ -28,7 +34,9 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-                <input type="button" value="Cancel" class="btn btn-link" />
+                <a asp-page="/Members/Index">
+                    <input type="button" value="Cancel" class="btn btn-light"/>
+                </a>
             </div>
         </form>
     </div>

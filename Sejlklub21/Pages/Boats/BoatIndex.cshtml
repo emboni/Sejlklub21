@@ -23,12 +23,26 @@
             <td>@boat.Model</td>
             <td>@boat.Specification</td>
             <td>@boat.Location</td>
+            <td>@if (Model.LoginService.CurrentMember != null)
+                {
+                    <a class="btn btn-outline-primary" asp-page="/Booking/CreateBooking" asp-route-boatNum="@boat.BoatNum">Reserver</a>
+                }
+                else
+                {
+                    <a class="btn btn-outline-primary" asp-page="/Logins/login">Reserver</a>
+                }
+            </td>
             <td>
                 <form method="post">
-                    <a asp-page="Damages" asp-route-id="@boat.BoatNum" class="btn btn-outline-light">Skader</a>
-                    <a asp-page="EditBoat" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Rediger</a>
-                    <button asp-page-handler="delete" asp-route-id="@boat.BoatNum" class="btn btn-danger"
-                            onclick="return confirm('Er du sikker på at du vil slette denne båd?');">Slet</button>
+                    <a asp-page="Damages" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Skader</a>
+                    @if (Model.LoginService.AdminPrivilege)
+                    {
+                        <a asp-page="EditBoat" asp-route-id="@boat.BoatNum" class="btn btn-outline-secondary">Rediger</a>
+                        <button asp-page-handler="delete" asp-route-id="@boat.BoatNum" class="btn btn-danger"
+                                onclick="return confirm('Er du sikker på at du vil slette denne båd?');">
+                            Slet
+                        </button>
+                    }
                 </form>
             </td>
         </tr>

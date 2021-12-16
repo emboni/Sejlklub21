@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +17,11 @@ namespace Sejlklub21.Pages.Accounts
         private ILoginService loginService;
 
         [BindProperty]
-        public string Username { get; set; }
+        [Required(ErrorMessage = "Email Required")]
+        public string Email { get; set; }
 
         [BindProperty]
+        [Required(ErrorMessage = "Password Required")]
         public string Password { get; set; }
 
         public IMember LoginMember { get; set; }
@@ -38,7 +41,7 @@ namespace Sejlklub21.Pages.Accounts
         {
             if (ModelState.IsValid)
             {
-                LoginMember = memberCatalog.Login(Username, Password);
+                LoginMember = memberCatalog.Login(Email, Password);
 
                 if (LoginMember != null)
                 {

@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "BoatNum": 1,
+    "MemberId": 0,
+    "Journey": {
+      "Start": "2021-12-07T10:56:00",
+      "End": "2021-12-07T10:56:00",
+      "Route": null
+    }
+  },
+  {
+    "Id": 2,
+    "BoatNum": 1,
+    "MemberId": 0,
+    "Journey": {
+      "Start": "2021-12-07T10:57:00",
+      "End": "2021-12-07T10:57:00",
+      "Route": null
+    }
+  },
+  {
+    "Id": 3,
+    "BoatNum": 1,
+    "MemberId": 0,
+    "Journey": {
+      "Start": "2021-12-11T13:32:00",
+      "End": "2021-12-12T13:32:00",
+      "Route": null
+    }
+  },
+  {
+    "Id": 4,
+    "BoatNum": 0,
+    "MemberId": 0,
+    "Journey": {
+      "Start": "2021-12-10T09:39:00",
+      "End": "2021-12-10T12:39:00",
+      "Route": null
+    }
+  },
+  {
+    "Id": 5,
+    "BoatNum": 0,
+    "MemberId": 0,
+    "Journey": {
+      "Start": "2021-12-09T10:12:00",
+      "End": "2021-12-10T10:11:00",
+      "Route": "på søen"
+    }
+  }
+]

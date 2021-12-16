@@ -4,6 +4,12 @@
     ViewData["Title"] = "Logout";
 }
 
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+
 <h1>Logout</h1>
 
 <form method="post">
@@ -12,6 +18,8 @@
     </div>
     <div class="form-group">
         <input type="submit" value="Logout" class="btn btn-danger" />
-        <input type="button" value="Back" class="btn btn-link" />
+        <a asp-page="/Profiles/Profile">
+            <input type="button" value="Back" class="btn btn-light" />
+        </a>
     </div>
 </form>

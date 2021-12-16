@@ -30,6 +30,7 @@ namespace Sejlklub21
 
             services.AddSingleton<ILoginService, LoginService>();
 
+            services.AddTransient<IBookingCatalog, BookingCatalog>();
             services.AddTransient<IMemberCatalog, MemberCatalog>();
             services.AddTransient<IEventCatalog, EventCatalog>();
             services.AddTransient<IBoatCatalog, BoatCatalog>();

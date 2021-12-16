@@ -29,12 +29,10 @@ namespace Sejlklub21.Pages.Boats
             }
 
             IBoat boat = _boatCatalog.GetBoat(boatNum);
-            Damage = new Damage
-            {
-                Date = DateTime.Now,
-                Status = DamageStatus.Status.IkkeBehandlet,
-                Id = boat.Damages.Count == 0 ? 1 : boat.Damages.Max(x => x.Id) + 1
-            };
+            Damage.Date = DateTime.Now;
+            Damage.Status = DamageStatus.Status.IkkeBehandlet;
+            Damage.Id = boat.Damages.Count == 0 ? 1 : boat.Damages.Max(x => x.Id) + 1;
+            
             boat.Damages.Add(Damage);
             _boatCatalog.Update(boat);
 

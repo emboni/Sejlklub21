@@ -40,9 +40,9 @@ namespace Sejlklub21.Services
             JsonFileWriter.WriteJsonMembers(members, jsonFilePath);
         }
 
-        public IMember Login(string username, string password)
+        public IMember Login(string email, string password)
         {
-            IMember loginMember = GetMemberByUsername(username);
+            IMember loginMember = GetMemberByEmail(email);
 
             if (loginMember != null && loginMember.Password == password)
             {
@@ -69,13 +69,13 @@ namespace Sejlklub21.Services
             return null;
         }
 
-        public IMember GetMemberByUsername(string username)
+        public IMember GetMemberByEmail(string email)
         {
             List<IMember> members = GetAllMembers();
 
             foreach (Member member in members)
             {
-                if (member.Username == username)
+                if (member.Email == email)
                 {
                     return member;
                 }

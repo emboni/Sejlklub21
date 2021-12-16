@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
+using Sejlklub21.Models;
 
 namespace Sejlklub21.Pages.Boats
 {
@@ -12,15 +13,18 @@ namespace Sejlklub21.Pages.Boats
     {
         private IBoatCatalog _boatCatalog;
         public List<IBoat> Boats { get; set; }
+        public ILoginService LoginService { get; set; }
 
-        public BoatIndexModel(IBoatCatalog boatCatalog)
+        public BoatIndexModel(IBoatCatalog boatCatalog, ILoginService loginService)
         {
             Boats = boatCatalog.GetAllBoats();
+            LoginService = loginService;
             _boatCatalog = boatCatalog;
         }
 
         public void OnGet()
         {
+            
         }
 
         public IActionResult OnPostDelete(int id)

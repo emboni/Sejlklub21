@@ -12,6 +12,7 @@ namespace Sejlklub21.Pages.Boats
     public class EditBoatModel : PageModel
     {
         private IBoatCatalog _boatCatalog;
+        private IBoat _boat;
         [BindProperty]
         public Boat Boat { get; set; }
 
@@ -31,8 +32,9 @@ namespace Sejlklub21.Pages.Boats
             {
                 return Page();
             }
-
-            Boat.BoatNum = id;
+            _boat = (Boat)_boatCatalog.GetBoat(id);
+            Boat.BoatNum = _boat.BoatNum;
+            Boat.Damages = _boat.Damages;
             _boatCatalog.Update(Boat);
             return RedirectToPage("BoatIndex");
         }

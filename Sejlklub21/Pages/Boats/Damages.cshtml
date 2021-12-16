@@ -26,7 +26,7 @@
                 <form method="post">
                     <a class="btn "></a>
                     <a asp-page="EditDamage" asp-route-boatId="@Model.BoatNumber" asp-route-dmgId="@dmg.Id" class="btn btn-outline-secondary">Rediger</a>
-                    <button asp-page-handler="delete" asp-route-dmgId="@dmg.Id" class="btn btn-danger"
+                    <button asp-page-handler="delete" asp-route-dmgId="@dmg.Id" asp-route-id="@Model.BoatNumber" class="btn btn-danger"
                             onclick="return confirm('Er du sikker på at du vil slette denne skade?');">
                         Slet
                     </button>
