@@ -18,7 +18,9 @@ namespace Sejlklub21.Pages.Members
         [BindProperty]
         public Member Member { get; set; }
 
+        [BindProperty]
         public List<bool> AllowedBools { get; set; }
+
         private List<IBoatType> AllowedBoatTypes { get; set; }
 
         public EditMemberModel(IMemberCatalog catalog, ILoginService service, IBoatTypeCatalog typeCatalog)
