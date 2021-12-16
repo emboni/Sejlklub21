@@ -16,6 +16,9 @@ namespace Sejlklub21.Pages.Accounts
         private IMemberCatalog memberCatalog;
         private ILoginService loginService;
 
+        public bool Error { get; set; }
+        public string ErrorMessage { get; set; }
+
         [BindProperty]
         [Required(ErrorMessage = "Email Required")]
         public string Email { get; set; }
@@ -41,20 +44,28 @@ namespace Sejlklub21.Pages.Accounts
         {
             if (ModelState.IsValid)
             {
-                LoginMember = memberCatalog.Login(Email, Password);
-
-                if (LoginMember != null)
+                try
                 {
-                    loginService.SetCurrentMember(LoginMember);
+                    LoginMember = memberCatalog.Login(Email, Password);
 
-                    if (loginService.AdminPrivilege)
+                    if (LoginMember != null)
                     {
-                        return RedirectToPage("/Members/Index");
+                        loginService.SetCurrentMember(LoginMember);
+
+                        if (loginService.AdminPrivilege)
+                        {
+                            return RedirectToPage("/Members/Index");
+                        }
+                        else if (!loginService.AdminPrivilege)
+                        {
+                            return RedirectToPage("/Index");
+                        }
                     }
-                    else if (!loginService.AdminPrivilege)
-                    {
-                        return RedirectToPage("/Index");
-                    }
+                }
+                catch (Exception e)
+                {
+                    Error = true;
+                    ErrorMessage = e.Message;
                 }
             }
 

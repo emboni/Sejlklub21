@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sejlklub21.Models;
 
 namespace Sejlklub21.Interfaces
 {

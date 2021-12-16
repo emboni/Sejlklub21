@@ -8,7 +8,8 @@
     "Name": "admin",
     "Number": "00000000",
     "Address": "address",
-    "ImageFileName": "cat - 2.jpg"
+    "ImageFileName": null,
+    "AllowedBoatTypes": null
   },
   {
     "Id": 1,
@@ -19,6 +20,7 @@
     "Name": "test1",
     "Number": "11111111",
     "Address": "address",
-    "ImageFileName": null
+    "ImageFileName": null,
+    "AllowedBoatTypes": null
   }
 ]

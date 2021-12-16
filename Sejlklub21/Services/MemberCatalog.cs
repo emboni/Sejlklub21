@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Sejlklub21.Helpers;
@@ -10,7 +11,7 @@ namespace Sejlklub21.Services
 {
     public class MemberCatalog : IMemberCatalog
     {
-        private string jsonFilePath = @"Data\Members.json";
+        private string jsonFilePath = @"Data\MemberCatalog.json";
 
         public void AddMember(IMember member)
         {

@@ -7,32 +7,31 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
 using Sejlklub21.Models;
 
-namespace Sejlklub21.Pages.Events
+namespace Sejlklub21.Pages.Blogs
 {
-    public class DeleteEventModel : PageModel
+    public class DeleteBlogPostModel : PageModel
     {
-        private IEventCatalog eventCatalog;
-        [BindProperty] 
-        public Event Event { get; set; }
+        private IBlogCatalog bloca;
 
-        public DeleteEventModel(IEventCatalog catalog)
+        [BindProperty]
+        public Blog Blog { get; set; }
+
+        public DeleteBlogPostModel(IBlogCatalog catalog)
         {
-            eventCatalog = catalog;
+            bloca = catalog;
         }
+
 
         public IActionResult OnGet(int id)
         {
-            Event = (Event) eventCatalog.GetEvent(id);
+            Blog = (Blog) bloca.GetBlogPost(id);
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            eventCatalog.DeleteEvent(Event.Id);
+            bloca.DeleteBlogPost(Blog.Id);
             return RedirectToPage("Index");
         }
     }
 }
-
-
-
