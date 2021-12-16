@@ -23,6 +23,11 @@ namespace Sejlklub21.Models
             _date = date;
         }
 
+        public Event()
+        {
+            
+        }
+
         public int Id { get { return _id; } set { _id = value; } }
         public string Name { get { return _name; } set { _name = value; } }
         public DateTime Date { get { return _date; } set { _date = value; } }

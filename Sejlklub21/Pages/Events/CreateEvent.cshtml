@@ -5,7 +5,9 @@
 }
 
 <h1>Create Event</h1>
-
+<p>
+    <a asp-page="Index">Back to List</a>
+</p>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -19,8 +21,8 @@
                 <input asp-for="@Model.Event.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Event.Date.TimeOfDay" class="control-label"></label>
-                <input asp-for="@Model.Event.Date.TimeOfDay" class="form-control" />
+                <label asp-for="@Model.Event.Date" class="control-label"></label>
+                <input asp-for="@Model.Event.Date" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="@Model.Event.Location" class="control-label"></label>
