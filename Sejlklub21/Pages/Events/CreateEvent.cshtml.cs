@@ -16,7 +16,7 @@ namespace Sejlklub21.Pages.Events
         [BindProperty]
         public Event Event { get; set; }
 
-        public CreateEventModel(IEventCatalog catalog)
+        public CreateEventModel(IEventCatalog catalog) 
         {
             eventCatalog = catalog;
         }
