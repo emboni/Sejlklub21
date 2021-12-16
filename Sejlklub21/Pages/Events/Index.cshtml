@@ -1,12 +1,17 @@
 ﻿@page
+@using Sejlklub21.Models
 @model Sejlklub21.Pages.Events.IndexModel
 @{
     ViewData["Name"] = "index";
 }
 
 <h1>Begivenheder; der er antal @Model.EventsList.Count begivenheder.</h1>
+<div>
+    <a asp-page="/Events/CreateEvent">Create Event</a>
+</div>
 <table class="table">
-    <thread>
+    
+    <thead>
         <tr>
             <th>
                 Id
@@ -24,7 +29,7 @@
                 DateTime
             </th>
         </tr>
-    </thread>
+    </thead>
     <tbody>
     @foreach (var IEvent in Model.EventsList)
     {
@@ -44,7 +49,14 @@
             <td>
                 @IEvent.Date
             </td>
+            <td>
+                <a asp-page="/Events/EditEvent" asp-route-id="@IEvent.Id">Edit</a>
+            </td>
+            <td>
+                <a asp-page="/Events/DeleteEvent" asp-route-id="@IEvent.Id">Delete</a>
+            </td>
         </tr>
     }
+    
     </tbody>
 </table>

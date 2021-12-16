@@ -6,6 +6,10 @@
 
 <h1>Hillerød Sejlklubs Blog</h1>
 
+<p>
+    <a asp-page="/Blogs/CreateBlogPost">Opret Blogindlæg</a>
+</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -44,6 +48,12 @@
                 </td>
                 <td>
                     @item.Picture
+                </td>
+                <td>
+                    <a asp-page="/Blogs/EditBlogPost" asp-route-id="@item.Id">Rediger</a>
+                </td>
+                <td>
+                    <a asp-page="/Blogs/DeleteBlogPost" asp-route-id="@item.Id">Slet</a>
                 </td>
             </tr>
         }

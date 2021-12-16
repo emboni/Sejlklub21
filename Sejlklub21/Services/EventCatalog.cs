@@ -27,24 +27,61 @@ namespace Sejlklub21.Services
         {
             eventList.Add(@event);
         }
-        public void UpdateEvent(IEvent @event)
+        //public void UpdateEvent(IEvent event)
+        //{
+        //    foreach (Event @event in eventList)
+        //    {
+
+        //    }
+        //    //eventList[@event.Id] = @event;
+        //    //Poul tror ikke, den dur
+        //}
+        public void UpdateEvent(IEvent ev)
         {
-            //foreach (IEvent @event in eventList)
-            //{
-                
-            //}
-            eventList[@event.Id] = @event;
-            //Poul tror ikke, den dur
+            foreach (Event @event in eventList)
+            {
+                if (@event.Id == ev.Id)
+                {
+                    @event.Date = ev.Date;
+                    @event.Name = ev.Name;
+                    @event.Description = ev.Description;
+                    @event.Location = ev.Location;
+                }
+            }
         }
         public IEvent GetEvent(int id)
         {
-            return eventList[id];
+            foreach (IEvent @event in GetAllEvents())
+            {
+                if (@event.Id==id)
+                {
+                    return @event;
+                }
+            }
+
+            return new Event();
         }
         
 
         public void DeleteEvent(int id)
         {
-            throw new NotImplementedException();
+            //eventList.RemoveAt(eventList.FindIndex(x=>x.Id==id));
+
+            //IEvent ev = new Event();
+            //foreach (IEvent @event in GetAllEvents())
+            //{
+            //    if (@event.Id == id)
+            //    {
+            //        ev = @event;
+            //    }
+            //}
+
+            //eventList.Remove(ev);
+
+            IEvent ev = GetEvent(id);
+            eventList.Remove(ev);
         }
+
+        
     }
 }

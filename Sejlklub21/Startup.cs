@@ -36,6 +36,7 @@ namespace Sejlklub21
             services.AddTransient<IEventCatalog, EventCatalog>();
             services.AddTransient<IBoatCatalog, BoatCatalog>();
             services.AddSingleton<IEventCatalog, EventCatalog>();
+            services.AddSingleton<IBlogCatalog, BlogCatalog>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

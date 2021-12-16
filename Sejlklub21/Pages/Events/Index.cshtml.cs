@@ -11,7 +11,7 @@ namespace Sejlklub21.Pages.Events
 {
     public class IndexModel : PageModel
     {
-        private EventCatalog iEventCatalog;
+        private IEventCatalog EventCatalog;
         
         public List<IEvent> EventsList { get; private set; }
 
@@ -20,13 +20,13 @@ namespace Sejlklub21.Pages.Events
         //    EventsList = eventCatalog.GetAllEvents(); //så får jeg fat i alle eventsene
         //}
 
-        public IndexModel()
+        public IndexModel(IEventCatalog catalog)
         {
-            iEventCatalog = new EventCatalog();
+            EventCatalog = catalog;
         }
         public void OnGet()
         {
-            EventsList = iEventCatalog.GetAllEvents();
+            EventsList = EventCatalog.GetAllEvents();
         }
     }
 }

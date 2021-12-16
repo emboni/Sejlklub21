@@ -6,20 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sejlklub21.Interfaces;
 using Sejlklub21.Models;
+using Sejlklub21.Services;
 
-namespace Sejlklub21.Pages.Events
+namespace Sejlklub21.Pages.Blogs
 {
-    public class CreateEventModel : PageModel
+    public class CreateBlogPostModel : PageModel
     {
-        private IEventCatalog eventCatalog;
+        //private BlogCatalog Bloca;
+        private IBlogCatalog Bloca;
 
         [BindProperty]
-        public Event Event { get; set; }
+        public Blog Blog { get; set; }
 
-        public CreateEventModel(IEventCatalog catalog) 
+        public CreateBlogPostModel(IBlogCatalog catalog)
         {
-            eventCatalog = catalog;
+            //Bloca = BlogCatalog.Instance;
+            Bloca = catalog;
         }
+
 
         public IActionResult OnGet()
         {
@@ -32,10 +36,8 @@ namespace Sejlklub21.Pages.Events
             {
                 return Page();
             }
-
-            eventCatalog.AddEvent(Event);
-
-            return RedirectToPage("/Events/Index");
+            Bloca.AddBlogPost(Blog);
+            return RedirectToPage("Index");
         }
     }
 }
